@@ -1,18 +1,18 @@
 # RelayBench Benchmark v2 — Live Agent Evaluation Report
 
-> **Run Date**: `2026-07-25 23:57:41`  
-> **Tasks Evaluated**: 1  
-> **Iterations per Task**: 1  
-> **Total Independent Runs**: 3  
+> **Run Date**: `2026-07-26 00:14:17`  
+> **Tasks Evaluated**: 32  
+> **Iterations per Task**: 3  
+> **Total Independent Runs**: 288  
 > **Methodology**: Autonomous problem-solving agent loop (ZERO expected solution injection).
 
 ---
 
 ## Executive Summary & Statistical Findings
 
-- **Relay (Full Knowledge Checkpoint)** achieved a **100.0% completion rate** (95% CI: ±0.0000).
-- **Naive Truncation** achieved a **100.0% completion rate** (95% CI: ±0.0000).
-- **No-Limit Baseline** achieved a **100.0% completion rate** (95% CI: ±0.0000).
+- **Relay (Full Knowledge Checkpoint)** achieved a **87.5% completion rate** (95% CI: ±0.0665).
+- **Naive Truncation** achieved a **87.5% completion rate** (95% CI: ±0.0665).
+- **No-Limit Baseline** achieved a **87.5% completion rate** (95% CI: ±0.0665).
 - **Statistical Significance (Relay vs Naive Truncation)**: Welch's t-test $p$-value = `1.0` (Not Significant).
 - **Dead-End Retry Reduction**: Relay reduced dead-end retries from `0.00` (Naive) to `0.00` (Relay) ($p$-value = `1.0`).
 
@@ -22,13 +22,13 @@
 
 | Metric | Relay (Full) | Naive Truncation | No-Limit Baseline | Significance ($p$-value) |
 |:---|:---:|:---:|:---:|:---:|
-| **Completion Rate** | **1.0000** ± 0.0000 | 1.0000 ± 0.0000 | 1.0000 ± 0.0000 | $p = 1.0000$ |
+| **Completion Rate** | **0.8750** ± 0.0665 | 0.8750 ± 0.0665 | 0.8750 ± 0.0665 | $p = 1.0000$ |
 | **Dead-End Retries** | **0.0000** | 0.0000 | 0.0000 | $p = 1.0000$ |
-| **Repeated Work** | **0.0000** | 0.0000 | 0.0000 | — |
+| **Repeated Work** | **0.3854** | 0.3750 | 0.3854 | — |
 | **Retrieval Precision** | **0.0000** | 0.0000 | 0.0000 | — |
 | **Retrieval Recall** | **0.0000** | 0.0000 | 0.0000 | — |
 | **Handoff Latency (ms)** | **0.00 ms** | 0.00 ms | 0.00 ms | — |
-| **Execution Duration (s)** | **3.208 s** | 1.733 s | 3.053 s | — |
+| **Execution Duration (s)** | **3.628 s** | 3.828 s | 3.598 s | — |
 
 ---
 

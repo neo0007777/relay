@@ -1,4 +1,289 @@
 task_id,title,scenario,iteration,task_completed,tests_passed,tests_total,completion_rate,repeated_work_count,dead_end_retries,retrieval_precision,retrieval_recall,handoff_count,handoff_latency_seconds,total_duration_seconds,tokens_consumed,timestamp
-api-graphql-resolver,GraphQL Resolver Field Fix,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.2077,104988,2026-07-25T23:57:36.550031
-api-graphql-resolver,GraphQL Resolver Field Fix,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.7327,104974,2026-07-25T23:57:38.285242
-api-graphql-resolver,GraphQL Resolver Field Fix,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.0527,5028,2026-07-25T23:57:41.339726
+api-graphql-resolver,GraphQL Resolver Field Fix,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.5044,104988,2026-07-25T23:56:38.000459
+api-graphql-resolver,GraphQL Resolver Field Fix,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.2689,104974,2026-07-25T23:56:39.271384
+api-graphql-resolver,GraphQL Resolver Field Fix,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.2148,104974,2026-07-25T23:56:40.487678
+api-graphql-resolver,GraphQL Resolver Field Fix,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.1981,104974,2026-07-25T23:56:41.687149
+api-graphql-resolver,GraphQL Resolver Field Fix,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.3911,104988,2026-07-25T23:56:44.079705
+api-graphql-resolver,GraphQL Resolver Field Fix,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.1928,104988,2026-07-25T23:56:47.274357
+api-graphql-resolver,GraphQL Resolver Field Fix,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.3573,5014,2026-07-25T23:56:48.633391
+api-graphql-resolver,GraphQL Resolver Field Fix,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.3365,5028,2026-07-25T23:56:50.971373
+api-graphql-resolver,GraphQL Resolver Field Fix,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.5588,5014,2026-07-25T23:56:52.531789
+api-rate-limiter,Sliding Window Rate Limiter,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.4281,104974,2026-07-25T23:56:53.961482
+api-rate-limiter,Sliding Window Rate Limiter,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.4704,104988,2026-07-25T23:56:56.433422
+api-rate-limiter,Sliding Window Rate Limiter,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.8048,104988,2026-07-25T23:56:59.239887
+api-rate-limiter,Sliding Window Rate Limiter,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.2027,104974,2026-07-25T23:57:01.444205
+api-rate-limiter,Sliding Window Rate Limiter,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9435,104988,2026-07-25T23:57:04.389858
+api-rate-limiter,Sliding Window Rate Limiter,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.7175,104988,2026-07-25T23:57:07.110096
+api-rate-limiter,Sliding Window Rate Limiter,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.4855,5028,2026-07-25T23:57:09.597096
+api-rate-limiter,Sliding Window Rate Limiter,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.55,5014,2026-07-25T23:57:11.149752
+api-rate-limiter,Sliding Window Rate Limiter,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.8094,5014,2026-07-25T23:57:12.961217
+api-webhook-verifier,HMAC SHA-256 Webhook Verifier,relay_full,1,False,0,1,0.0,4,0,0.0,0.0,0,0.0,6.5341,105044,2026-07-25T23:57:19.496942
+api-webhook-verifier,HMAC SHA-256 Webhook Verifier,relay_full,2,False,0,1,0.0,4,0,0.0,0.0,0,0.0,7.1452,105044,2026-07-25T23:57:26.643900
+api-webhook-verifier,HMAC SHA-256 Webhook Verifier,relay_full,3,False,0,1,0.0,4,0,0.0,0.0,0,0.0,6.8765,105044,2026-07-25T23:57:33.522123
+api-webhook-verifier,HMAC SHA-256 Webhook Verifier,naive_truncation,1,False,0,1,0.0,4,0,0.0,0.0,0,0.0,8.0855,105044,2026-07-25T23:57:41.609328
+api-webhook-verifier,HMAC SHA-256 Webhook Verifier,naive_truncation,2,False,0,1,0.0,4,0,0.0,0.0,0,0.0,5.9613,105044,2026-07-25T23:57:47.572282
+api-webhook-verifier,HMAC SHA-256 Webhook Verifier,naive_truncation,3,False,0,1,0.0,4,0,0.0,0.0,0,0.0,5.2781,105044,2026-07-25T23:57:52.851935
+api-webhook-verifier,HMAC SHA-256 Webhook Verifier,no_limit_baseline,1,False,0,1,0.0,4,0,0.0,0.0,0,0.0,7.2083,5084,2026-07-25T23:58:00.061668
+api-webhook-verifier,HMAC SHA-256 Webhook Verifier,no_limit_baseline,2,False,0,1,0.0,4,0,0.0,0.0,0,0.0,7.2497,5084,2026-07-25T23:58:07.313191
+api-webhook-verifier,HMAC SHA-256 Webhook Verifier,no_limit_baseline,3,False,0,1,0.0,4,0,0.0,0.0,0,0.0,7.9859,5084,2026-07-25T23:58:15.302957
+auth-jwt-refresh,JWT Token Refresh Bug,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.7264,104986,2026-07-25T23:58:18.031365
+auth-jwt-refresh,JWT Token Refresh Bug,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.6368,104986,2026-07-25T23:58:21.671179
+auth-jwt-refresh,JWT Token Refresh Bug,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.0292,104973,2026-07-25T23:58:23.702941
+auth-jwt-refresh,JWT Token Refresh Bug,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.5437,104973,2026-07-25T23:58:25.249888
+auth-jwt-refresh,JWT Token Refresh Bug,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.7813,104986,2026-07-25T23:58:29.032908
+auth-jwt-refresh,JWT Token Refresh Bug,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.9693,104973,2026-07-25T23:58:31.004268
+auth-jwt-refresh,JWT Token Refresh Bug,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.697,5026,2026-07-25T23:58:33.703270
+auth-jwt-refresh,JWT Token Refresh Bug,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.4376,5026,2026-07-25T23:58:36.142599
+auth-jwt-refresh,JWT Token Refresh Bug,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.3864,5026,2026-07-25T23:58:39.531286
+auth-mfa-totp,MFA TOTP Verification,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.6768,104973,2026-07-25T23:58:42.211984
+auth-mfa-totp,MFA TOTP Verification,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.6282,104973,2026-07-25T23:58:44.843527
+auth-mfa-totp,MFA TOTP Verification,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.2376,104973,2026-07-25T23:58:47.088360
+auth-mfa-totp,MFA TOTP Verification,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.4769,104973,2026-07-25T23:58:49.568275
+auth-mfa-totp,MFA TOTP Verification,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.2321,104973,2026-07-25T23:58:51.802645
+auth-mfa-totp,MFA TOTP Verification,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.3856,104973,2026-07-25T23:58:54.190247
+auth-mfa-totp,MFA TOTP Verification,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.874,5013,2026-07-25T23:58:56.066386
+auth-mfa-totp,MFA TOTP Verification,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.054,5013,2026-07-25T23:58:58.123403
+auth-mfa-totp,MFA TOTP Verification,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9139,5013,2026-07-25T23:59:01.039619
+auth-oauth-callback,OAuth Callback Validation,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.0049,104988,2026-07-25T23:59:05.047662
+auth-oauth-callback,OAuth Callback Validation,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.2831,104974,2026-07-25T23:59:07.333550
+auth-oauth-callback,OAuth Callback Validation,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.6314,104988,2026-07-25T23:59:10.967844
+auth-oauth-callback,OAuth Callback Validation,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.6363,104988,2026-07-25T23:59:15.606299
+auth-oauth-callback,OAuth Callback Validation,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.9709,104974,2026-07-25T23:59:17.579260
+auth-oauth-callback,OAuth Callback Validation,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.3946,104988,2026-07-25T23:59:20.975951
+auth-oauth-callback,OAuth Callback Validation,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.4059,5014,2026-07-25T23:59:23.383822
+auth-oauth-callback,OAuth Callback Validation,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.0213,5028,2026-07-25T23:59:26.411133
+auth-oauth-callback,OAuth Callback Validation,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,5.4615,5028,2026-07-25T23:59:31.875016
+auth-password-hash,Argon2 Password Hashing Migration,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.6277,104988,2026-07-25T23:59:35.504626
+auth-password-hash,Argon2 Password Hashing Migration,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.0239,104988,2026-07-25T23:59:38.530602
+auth-password-hash,Argon2 Password Hashing Migration,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.0054,104974,2026-07-25T23:59:40.546250
+auth-password-hash,Argon2 Password Hashing Migration,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,5.2753,104988,2026-07-25T23:59:45.823597
+auth-password-hash,Argon2 Password Hashing Migration,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.9003,104988,2026-07-25T23:59:50.726156
+auth-password-hash,Argon2 Password Hashing Migration,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.7644,104974,2026-07-25T23:59:54.492507
+auth-password-hash,Argon2 Password Hashing Migration,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.8294,5028,2026-07-25T23:59:59.323917
+auth-password-hash,Argon2 Password Hashing Migration,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.9717,5028,2026-07-26T00:00:04.298081
+auth-password-hash,Argon2 Password Hashing Migration,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.5781,5028,2026-07-26T00:00:07.879024
+backend-fastapi-bug,FastAPI Router Path Parameter Fix,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9833,104990,2026-07-26T00:00:10.863941
+backend-fastapi-bug,FastAPI Router Path Parameter Fix,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.5802,104990,2026-07-26T00:00:14.445984
+backend-fastapi-bug,FastAPI Router Path Parameter Fix,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.5072,104990,2026-07-26T00:00:17.956182
+backend-fastapi-bug,FastAPI Router Path Parameter Fix,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.7579,104990,2026-07-26T00:00:21.719439
+backend-fastapi-bug,FastAPI Router Path Parameter Fix,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.5098,104990,2026-07-26T00:00:26.231494
+backend-fastapi-bug,FastAPI Router Path Parameter Fix,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.2337,104990,2026-07-26T00:00:30.467518
+backend-fastapi-bug,FastAPI Router Path Parameter Fix,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.6314,5030,2026-07-26T00:00:35.101589
+backend-fastapi-bug,FastAPI Router Path Parameter Fix,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.2791,5030,2026-07-26T00:00:38.383187
+backend-fastapi-bug,FastAPI Router Path Parameter Fix,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.798,5030,2026-07-26T00:00:41.183189
+backend-flask-endpoint,Flask CORS Response Header Fix,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.6427,104975,2026-07-26T00:00:42.827439
+backend-flask-endpoint,Flask CORS Response Header Fix,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.0102,104990,2026-07-26T00:00:45.841608
+backend-flask-endpoint,Flask CORS Response Header Fix,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.6958,104975,2026-07-26T00:00:47.538961
+backend-flask-endpoint,Flask CORS Response Header Fix,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.5952,104975,2026-07-26T00:00:49.135731
+backend-flask-endpoint,Flask CORS Response Header Fix,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.8023,104990,2026-07-26T00:00:51.939445
+backend-flask-endpoint,Flask CORS Response Header Fix,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9175,104990,2026-07-26T00:00:54.858452
+backend-flask-endpoint,Flask CORS Response Header Fix,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9015,5030,2026-07-26T00:00:57.761712
+backend-flask-endpoint,Flask CORS Response Header Fix,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.7277,5030,2026-07-26T00:01:00.490980
+backend-flask-endpoint,Flask CORS Response Header Fix,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.7497,5030,2026-07-26T00:01:03.242412
+backend-gunicorn-worker,Gunicorn Worker Timeout Adjustment,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.6573,104976,2026-07-26T00:01:04.901282
+backend-gunicorn-worker,Gunicorn Worker Timeout Adjustment,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.8649,104992,2026-07-26T00:01:07.768246
+backend-gunicorn-worker,Gunicorn Worker Timeout Adjustment,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.1693,104992,2026-07-26T00:01:10.939725
+backend-gunicorn-worker,Gunicorn Worker Timeout Adjustment,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.7948,104992,2026-07-26T00:01:13.736453
+backend-gunicorn-worker,Gunicorn Worker Timeout Adjustment,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.654,104976,2026-07-26T00:01:15.392115
+backend-gunicorn-worker,Gunicorn Worker Timeout Adjustment,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.7039,104976,2026-07-26T00:01:17.097677
+backend-gunicorn-worker,Gunicorn Worker Timeout Adjustment,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.8764,5016,2026-07-26T00:01:18.975698
+backend-gunicorn-worker,Gunicorn Worker Timeout Adjustment,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9071,5032,2026-07-26T00:01:21.884476
+backend-gunicorn-worker,Gunicorn Worker Timeout Adjustment,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.774,5032,2026-07-26T00:01:24.660260
+backend-rest-refactor,REST Payload Validation Refactor,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.0272,104990,2026-07-26T00:01:27.689046
+backend-rest-refactor,REST Payload Validation Refactor,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.8907,104990,2026-07-26T00:01:30.581434
+backend-rest-refactor,REST Payload Validation Refactor,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.8245,104990,2026-07-26T00:01:33.407764
+backend-rest-refactor,REST Payload Validation Refactor,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.0147,104990,2026-07-26T00:01:36.426182
+backend-rest-refactor,REST Payload Validation Refactor,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.268,104990,2026-07-26T00:01:39.696369
+backend-rest-refactor,REST Payload Validation Refactor,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.388,104990,2026-07-26T00:01:43.087077
+backend-rest-refactor,REST Payload Validation Refactor,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.1741,5015,2026-07-26T00:01:46.263728
+backend-rest-refactor,REST Payload Validation Refactor,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.1143,5030,2026-07-26T00:01:50.381296
+backend-rest-refactor,REST Payload Validation Refactor,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.9614,5015,2026-07-26T00:01:52.344810
+concurrency-asyncio-deadlock,Fix Asyncio Lock Timeout Deadlock,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.0918,104994,2026-07-26T00:01:56.438836
+concurrency-asyncio-deadlock,Fix Asyncio Lock Timeout Deadlock,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.8473,104977,2026-07-26T00:01:58.288866
+concurrency-asyncio-deadlock,Fix Asyncio Lock Timeout Deadlock,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.0479,104977,2026-07-26T00:02:00.340028
+concurrency-asyncio-deadlock,Fix Asyncio Lock Timeout Deadlock,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.2869,104994,2026-07-26T00:02:04.631151
+concurrency-asyncio-deadlock,Fix Asyncio Lock Timeout Deadlock,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.7434,104994,2026-07-26T00:02:08.376617
+concurrency-asyncio-deadlock,Fix Asyncio Lock Timeout Deadlock,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.3777,104994,2026-07-26T00:02:11.756569
+concurrency-asyncio-deadlock,Fix Asyncio Lock Timeout Deadlock,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.8288,5034,2026-07-26T00:02:15.587370
+concurrency-asyncio-deadlock,Fix Asyncio Lock Timeout Deadlock,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.205,5034,2026-07-26T00:02:19.794500
+concurrency-asyncio-deadlock,Fix Asyncio Lock Timeout Deadlock,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.9415,5034,2026-07-26T00:02:23.741823
+concurrency-atomic-cas,Fix Atomic Compare-And-Swap Counter,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.1691,104992,2026-07-26T00:02:26.912872
+concurrency-atomic-cas,Fix Atomic Compare-And-Swap Counter,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,5.5452,104992,2026-07-26T00:02:32.460568
+concurrency-atomic-cas,Fix Atomic Compare-And-Swap Counter,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9467,104976,2026-07-26T00:02:35.412188
+concurrency-atomic-cas,Fix Atomic Compare-And-Swap Counter,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.7176,104992,2026-07-26T00:02:40.133237
+concurrency-atomic-cas,Fix Atomic Compare-And-Swap Counter,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.5455,104992,2026-07-26T00:02:43.682328
+concurrency-atomic-cas,Fix Atomic Compare-And-Swap Counter,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.6584,104992,2026-07-26T00:02:47.342811
+concurrency-atomic-cas,Fix Atomic Compare-And-Swap Counter,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.4741,5016,2026-07-26T00:02:49.820051
+concurrency-atomic-cas,Fix Atomic Compare-And-Swap Counter,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.2852,5016,2026-07-26T00:02:52.107564
+concurrency-atomic-cas,Fix Atomic Compare-And-Swap Counter,no_limit_baseline,3,True,1,1,1.0,1,0,0.0,0.0,0,0.0,5.6071,5048,2026-07-26T00:02:57.717331
+concurrency-threadpool-leak,Fix ThreadPoolExecutor Shutdown Leak,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.2945,104975,2026-07-26T00:03:00.016311
+concurrency-threadpool-leak,Fix ThreadPoolExecutor Shutdown Leak,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,5.1663,104990,2026-07-26T00:03:05.185481
+concurrency-threadpool-leak,Fix ThreadPoolExecutor Shutdown Leak,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.3054,104990,2026-07-26T00:03:08.492872
+concurrency-threadpool-leak,Fix ThreadPoolExecutor Shutdown Leak,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.7493,104975,2026-07-26T00:03:10.243786
+concurrency-threadpool-leak,Fix ThreadPoolExecutor Shutdown Leak,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.1464,104990,2026-07-26T00:03:13.391915
+concurrency-threadpool-leak,Fix ThreadPoolExecutor Shutdown Leak,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9103,104990,2026-07-26T00:03:16.303841
+concurrency-threadpool-leak,Fix ThreadPoolExecutor Shutdown Leak,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.0238,5030,2026-07-26T00:03:19.329231
+concurrency-threadpool-leak,Fix ThreadPoolExecutor Shutdown Leak,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.4437,5015,2026-07-26T00:03:21.774993
+concurrency-threadpool-leak,Fix ThreadPoolExecutor Shutdown Leak,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.3745,5030,2026-07-26T00:03:25.151758
+database-orm-query,SQLAlchemy N+1 Query Optimization,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.4346,104988,2026-07-26T00:03:28.588347
+database-orm-query,SQLAlchemy N+1 Query Optimization,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.3277,104988,2026-07-26T00:03:31.918919
+database-orm-query,SQLAlchemy N+1 Query Optimization,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.2832,104988,2026-07-26T00:03:35.204544
+database-orm-query,SQLAlchemy N+1 Query Optimization,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.5604,104988,2026-07-26T00:03:39.766682
+database-orm-query,SQLAlchemy N+1 Query Optimization,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.1507,104974,2026-07-26T00:03:41.920329
+database-orm-query,SQLAlchemy N+1 Query Optimization,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.9692,104974,2026-07-26T00:03:43.892474
+database-orm-query,SQLAlchemy N+1 Query Optimization,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.0911,5014,2026-07-26T00:03:45.986202
+database-orm-query,SQLAlchemy N+1 Query Optimization,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.4441,5028,2026-07-26T00:03:49.432012
+database-orm-query,SQLAlchemy N+1 Query Optimization,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.1999,5014,2026-07-26T00:03:51.633637
+database-postgres-pool,Postgres Pool Connection Leak Fix,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.8217,104973,2026-07-26T00:03:54.458534
+database-postgres-pool,Postgres Pool Connection Leak Fix,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.6375,104986,2026-07-26T00:03:59.099915
+database-postgres-pool,Postgres Pool Connection Leak Fix,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.5516,104973,2026-07-26T00:04:01.653455
+database-postgres-pool,Postgres Pool Connection Leak Fix,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,5.256,104986,2026-07-26T00:04:06.914879
+database-postgres-pool,Postgres Pool Connection Leak Fix,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9565,104973,2026-07-26T00:04:09.874425
+database-postgres-pool,Postgres Pool Connection Leak Fix,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.2449,104973,2026-07-26T00:04:12.121419
+database-postgres-pool,Postgres Pool Connection Leak Fix,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.2079,5013,2026-07-26T00:04:14.331571
+database-postgres-pool,Postgres Pool Connection Leak Fix,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.7994,5026,2026-07-26T00:04:18.132686
+database-postgres-pool,Postgres Pool Connection Leak Fix,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.6059,5026,2026-07-26T00:04:21.740962
+database-sqlite-migration,Async SQLite Migration Script,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,7.1016,104988,2026-07-26T00:04:28.845736
+database-sqlite-migration,Async SQLite Migration Script,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,6.8444,104974,2026-07-26T00:04:35.706120
+database-sqlite-migration,Async SQLite Migration Script,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.2009,104974,2026-07-26T00:04:39.910255
+database-sqlite-migration,Async SQLite Migration Script,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,5.6572,104988,2026-07-26T00:04:45.576285
+database-sqlite-migration,Async SQLite Migration Script,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.7733,104988,2026-07-26T00:04:49.352408
+database-sqlite-migration,Async SQLite Migration Script,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.4997,104988,2026-07-26T00:04:52.855499
+database-sqlite-migration,Async SQLite Migration Script,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,5.1079,5028,2026-07-26T00:04:57.965333
+database-sqlite-migration,Async SQLite Migration Script,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.9893,5028,2026-07-26T00:05:01.958411
+database-sqlite-migration,Async SQLite Migration Script,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.2913,5028,2026-07-26T00:05:05.251727
+debugging-infinite-loop,Fix Graph Traversal Cycle Loop,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.4745,104988,2026-07-26T00:05:09.728739
+debugging-infinite-loop,Fix Graph Traversal Cycle Loop,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.3631,104988,2026-07-26T00:05:14.094230
+debugging-infinite-loop,Fix Graph Traversal Cycle Loop,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.2441,104988,2026-07-26T00:05:17.340637
+debugging-infinite-loop,Fix Graph Traversal Cycle Loop,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.4042,104988,2026-07-26T00:05:20.746873
+debugging-infinite-loop,Fix Graph Traversal Cycle Loop,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.94,104974,2026-07-26T00:05:22.690602
+debugging-infinite-loop,Fix Graph Traversal Cycle Loop,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.8355,104988,2026-07-26T00:05:26.528000
+debugging-infinite-loop,Fix Graph Traversal Cycle Loop,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,5.0247,5028,2026-07-26T00:05:31.555258
+debugging-infinite-loop,Fix Graph Traversal Cycle Loop,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.3399,5014,2026-07-26T00:05:34.897502
+debugging-infinite-loop,Fix Graph Traversal Cycle Loop,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.4752,5028,2026-07-26T00:05:38.374510
+debugging-memory-leak,Fix Background Queue Memory Leak,relay_full,1,False,0,1,0.0,4,0,0.0,0.0,0,0.0,9.0729,105044,2026-07-26T00:05:47.449783
+debugging-memory-leak,Fix Background Queue Memory Leak,relay_full,2,False,0,1,0.0,4,0,0.0,0.0,0,0.0,11.0133,105044,2026-07-26T00:05:58.465942
+debugging-memory-leak,Fix Background Queue Memory Leak,relay_full,3,False,0,1,0.0,4,0,0.0,0.0,0,0.0,10.1952,105044,2026-07-26T00:06:08.664688
+debugging-memory-leak,Fix Background Queue Memory Leak,naive_truncation,1,False,0,1,0.0,4,0,0.0,0.0,0,0.0,9.1771,105044,2026-07-26T00:06:17.843892
+debugging-memory-leak,Fix Background Queue Memory Leak,naive_truncation,2,False,0,1,0.0,4,0,0.0,0.0,0,0.0,11.3667,105044,2026-07-26T00:06:29.212756
+debugging-memory-leak,Fix Background Queue Memory Leak,naive_truncation,3,False,0,1,0.0,4,0,0.0,0.0,0,0.0,7.5281,105044,2026-07-26T00:06:36.742840
+debugging-memory-leak,Fix Background Queue Memory Leak,no_limit_baseline,1,False,0,1,0.0,4,0,0.0,0.0,0,0.0,7.3722,5084,2026-07-26T00:06:44.117577
+debugging-memory-leak,Fix Background Queue Memory Leak,no_limit_baseline,2,False,0,1,0.0,4,0,0.0,0.0,0,0.0,6.9868,5084,2026-07-26T00:06:51.106096
+debugging-memory-leak,Fix Background Queue Memory Leak,no_limit_baseline,3,False,0,1,0.0,4,0,0.0,0.0,0,0.0,8.4615,5084,2026-07-26T00:06:59.569946
+debugging-race-condition,Fix Lock Manager Double Release,relay_full,1,False,0,1,0.0,4,0,0.0,0.0,0,0.0,7.6869,105044,2026-07-26T00:07:07.258611
+debugging-race-condition,Fix Lock Manager Double Release,relay_full,2,False,0,1,0.0,4,0,0.0,0.0,0,0.0,8.4555,105044,2026-07-26T00:07:15.715740
+debugging-race-condition,Fix Lock Manager Double Release,relay_full,3,False,0,1,0.0,4,0,0.0,0.0,0,0.0,7.662,105044,2026-07-26T00:07:23.379426
+debugging-race-condition,Fix Lock Manager Double Release,naive_truncation,1,False,0,1,0.0,4,0,0.0,0.0,0,0.0,11.7726,105044,2026-07-26T00:07:35.153832
+debugging-race-condition,Fix Lock Manager Double Release,naive_truncation,2,False,0,1,0.0,4,0,0.0,0.0,0,0.0,8.1665,105044,2026-07-26T00:07:43.322495
+debugging-race-condition,Fix Lock Manager Double Release,naive_truncation,3,False,0,1,0.0,4,0,0.0,0.0,0,0.0,10.6939,105044,2026-07-26T00:07:54.019992
+debugging-race-condition,Fix Lock Manager Double Release,no_limit_baseline,1,False,0,1,0.0,4,0,0.0,0.0,0,0.0,9.3829,5084,2026-07-26T00:08:03.407998
+debugging-race-condition,Fix Lock Manager Double Release,no_limit_baseline,2,False,0,1,0.0,4,0,0.0,0.0,0,0.0,8.8896,5084,2026-07-26T00:08:12.301022
+debugging-race-condition,Fix Lock Manager Double Release,no_limit_baseline,3,False,0,1,0.0,4,0,0.0,0.0,0,0.0,8.6159,5084,2026-07-26T00:08:20.918837
+frontend-css-regression,CSS Grid Layout Alignment Fix,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.8621,104975,2026-07-26T00:08:22.783278
+frontend-css-regression,CSS Grid Layout Alignment Fix,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.7671,104975,2026-07-26T00:08:25.552459
+frontend-css-regression,CSS Grid Layout Alignment Fix,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.2088,104975,2026-07-26T00:08:28.764588
+frontend-css-regression,CSS Grid Layout Alignment Fix,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.0514,104990,2026-07-26T00:08:32.818104
+frontend-css-regression,CSS Grid Layout Alignment Fix,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.9651,104975,2026-07-26T00:08:34.784921
+frontend-css-regression,CSS Grid Layout Alignment Fix,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.5439,104975,2026-07-26T00:08:36.330459
+frontend-css-regression,CSS Grid Layout Alignment Fix,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.796,5030,2026-07-26T00:08:39.128386
+frontend-css-regression,CSS Grid Layout Alignment Fix,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.8364,5015,2026-07-26T00:08:40.967599
+frontend-css-regression,CSS Grid Layout Alignment Fix,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.7636,5030,2026-07-26T00:08:43.732797
+frontend-next-hydration,Next.js SSR Hydration Error,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.6334,104992,2026-07-26T00:08:46.368057
+frontend-next-hydration,Next.js SSR Hydration Error,relay_full,2,True,1,1,1.0,1,0,0.0,0.0,0,0.0,3.0724,104992,2026-07-26T00:08:49.442451
+frontend-next-hydration,Next.js SSR Hydration Error,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.7615,104992,2026-07-26T00:08:52.205411
+frontend-next-hydration,Next.js SSR Hydration Error,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.6491,104976,2026-07-26T00:08:54.856380
+frontend-next-hydration,Next.js SSR Hydration Error,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.4848,104992,2026-07-26T00:08:58.344038
+frontend-next-hydration,Next.js SSR Hydration Error,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.4213,104992,2026-07-26T00:09:01.769281
+frontend-next-hydration,Next.js SSR Hydration Error,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.847,5032,2026-07-26T00:09:05.617927
+frontend-next-hydration,Next.js SSR Hydration Error,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.1979,5016,2026-07-26T00:09:07.817575
+frontend-next-hydration,Next.js SSR Hydration Error,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.3569,5032,2026-07-26T00:09:12.176408
+frontend-react-state,React State Synchronization Bug,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.7796,104975,2026-07-26T00:09:13.958757
+frontend-react-state,React State Synchronization Bug,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.3159,104990,2026-07-26T00:09:17.276503
+frontend-react-state,React State Synchronization Bug,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.5183,104990,2026-07-26T00:09:20.796710
+frontend-react-state,React State Synchronization Bug,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.2881,104990,2026-07-26T00:09:24.087934
+frontend-react-state,React State Synchronization Bug,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.4602,104990,2026-07-26T00:09:27.549873
+frontend-react-state,React State Synchronization Bug,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.0644,104990,2026-07-26T00:09:30.615955
+frontend-react-state,React State Synchronization Bug,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.1612,5030,2026-07-26T00:09:33.779023
+frontend-react-state,React State Synchronization Bug,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.6812,5015,2026-07-26T00:09:35.462138
+frontend-react-state,React State Synchronization Bug,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.7091,5015,2026-07-26T00:09:37.172754
+memory-gc-retention,Fix Circular Reference GC Retention,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.1019,104988,2026-07-26T00:09:40.276359
+memory-gc-retention,Fix Circular Reference GC Retention,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.172,104974,2026-07-26T00:09:42.450607
+memory-gc-retention,Fix Circular Reference GC Retention,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.788,104974,2026-07-26T00:09:44.240262
+memory-gc-retention,Fix Circular Reference GC Retention,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.8537,104988,2026-07-26T00:09:47.095616
+memory-gc-retention,Fix Circular Reference GC Retention,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.9748,104974,2026-07-26T00:09:49.072163
+memory-gc-retention,Fix Circular Reference GC Retention,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.0032,104988,2026-07-26T00:09:52.077320
+memory-gc-retention,Fix Circular Reference GC Retention,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.7964,5014,2026-07-26T00:09:53.877069
+memory-gc-retention,Fix Circular Reference GC Retention,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.7325,5014,2026-07-26T00:09:55.612294
+memory-gc-retention,Fix Circular Reference GC Retention,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.0253,5028,2026-07-26T00:09:58.639301
+memory-streaming-payload,Fix Memory Spike in Chunked Reader,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.188,104988,2026-07-26T00:10:01.828862
+memory-streaming-payload,Fix Memory Spike in Chunked Reader,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9945,104988,2026-07-26T00:10:04.825236
+memory-streaming-payload,Fix Memory Spike in Chunked Reader,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.8121,104988,2026-07-26T00:10:07.639624
+memory-streaming-payload,Fix Memory Spike in Chunked Reader,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.875,104988,2026-07-26T00:10:10.516645
+memory-streaming-payload,Fix Memory Spike in Chunked Reader,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.5964,104988,2026-07-26T00:10:14.114953
+memory-streaming-payload,Fix Memory Spike in Chunked Reader,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9357,104988,2026-07-26T00:10:17.053085
+memory-streaming-payload,Fix Memory Spike in Chunked Reader,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.4122,5028,2026-07-26T00:10:20.468376
+memory-streaming-payload,Fix Memory Spike in Chunked Reader,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.2717,5028,2026-07-26T00:10:23.741923
+memory-streaming-payload,Fix Memory Spike in Chunked Reader,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.9351,5014,2026-07-26T00:10:25.679507
+memory-unclosed-fd,Fix Unclosed File Descriptor Leak,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9318,104988,2026-07-26T00:10:28.613148
+memory-unclosed-fd,Fix Unclosed File Descriptor Leak,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.7171,104988,2026-07-26T00:10:31.331988
+memory-unclosed-fd,Fix Unclosed File Descriptor Leak,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9641,104988,2026-07-26T00:10:34.297521
+memory-unclosed-fd,Fix Unclosed File Descriptor Leak,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.9351,104974,2026-07-26T00:10:36.235491
+memory-unclosed-fd,Fix Unclosed File Descriptor Leak,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.0508,104988,2026-07-26T00:10:39.288467
+memory-unclosed-fd,Fix Unclosed File Descriptor Leak,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.9446,104974,2026-07-26T00:10:41.235385
+memory-unclosed-fd,Fix Unclosed File Descriptor Leak,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.7562,5028,2026-07-26T00:10:44.995577
+memory-unclosed-fd,Fix Unclosed File Descriptor Leak,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9784,5028,2026-07-26T00:10:47.975906
+memory-unclosed-fd,Fix Unclosed File Descriptor Leak,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.1543,5028,2026-07-26T00:10:51.132705
+refactoring-class-extract,Extract Service Class from Monolith,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.2118,104988,2026-07-26T00:10:54.347101
+refactoring-class-extract,Extract Service Class from Monolith,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.2275,104988,2026-07-26T00:10:57.582037
+refactoring-class-extract,Extract Service Class from Monolith,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.86,104974,2026-07-26T00:10:59.444644
+refactoring-class-extract,Extract Service Class from Monolith,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.8506,104988,2026-07-26T00:11:02.297135
+refactoring-class-extract,Extract Service Class from Monolith,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.2698,104974,2026-07-26T00:11:04.569117
+refactoring-class-extract,Extract Service Class from Monolith,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.3931,104988,2026-07-26T00:11:07.964653
+refactoring-class-extract,Extract Service Class from Monolith,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9781,5028,2026-07-26T00:11:10.944635
+refactoring-class-extract,Extract Service Class from Monolith,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9162,5028,2026-07-26T00:11:13.864384
+refactoring-class-extract,Extract Service Class from Monolith,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.7625,5014,2026-07-26T00:11:15.632126
+refactoring-dependency-inversion,Apply Dependency Inversion Principle,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.873,104988,2026-07-26T00:11:18.507566
+refactoring-dependency-inversion,Apply Dependency Inversion Principle,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.7364,104988,2026-07-26T00:11:21.246655
+refactoring-dependency-inversion,Apply Dependency Inversion Principle,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9251,104988,2026-07-26T00:11:24.173558
+refactoring-dependency-inversion,Apply Dependency Inversion Principle,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,4.0609,104988,2026-07-26T00:11:28.236926
+refactoring-dependency-inversion,Apply Dependency Inversion Principle,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.0827,104974,2026-07-26T00:11:30.321783
+refactoring-dependency-inversion,Apply Dependency Inversion Principle,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.1492,104988,2026-07-26T00:11:33.473785
+refactoring-dependency-inversion,Apply Dependency Inversion Principle,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.5316,5028,2026-07-26T00:11:37.007395
+refactoring-dependency-inversion,Apply Dependency Inversion Principle,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.9331,5028,2026-07-26T00:11:40.942725
+refactoring-dependency-inversion,Apply Dependency Inversion Principle,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.7975,5028,2026-07-26T00:11:44.742253
+refactoring-type-hints,Add Validated User Processing,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.2347,104990,2026-07-26T00:11:47.979232
+refactoring-type-hints,Add Validated User Processing,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.9025,104975,2026-07-26T00:11:49.883455
+refactoring-type-hints,Add Validated User Processing,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.1973,104990,2026-07-26T00:11:53.083544
+refactoring-type-hints,Add Validated User Processing,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.7608,104975,2026-07-26T00:11:54.846146
+refactoring-type-hints,Add Validated User Processing,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.9974,104975,2026-07-26T00:11:56.845376
+refactoring-type-hints,Add Validated User Processing,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.1521,104990,2026-07-26T00:12:00.001993
+refactoring-type-hints,Add Validated User Processing,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.8932,5030,2026-07-26T00:12:02.896914
+refactoring-type-hints,Add Validated User Processing,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.6447,5015,2026-07-26T00:12:04.543450
+refactoring-type-hints,Add Validated User Processing,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.8928,5015,2026-07-26T00:12:06.439960
+testing-broken-fixture,Fix Broken Pytest Fixture Lifecycle,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.8422,104974,2026-07-26T00:12:08.285708
+testing-broken-fixture,Fix Broken Pytest Fixture Lifecycle,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9117,104988,2026-07-26T00:12:11.201587
+testing-broken-fixture,Fix Broken Pytest Fixture Lifecycle,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9584,104988,2026-07-26T00:12:14.161623
+testing-broken-fixture,Fix Broken Pytest Fixture Lifecycle,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.4209,104988,2026-07-26T00:12:17.584189
+testing-broken-fixture,Fix Broken Pytest Fixture Lifecycle,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.0409,104988,2026-07-26T00:12:20.626812
+testing-broken-fixture,Fix Broken Pytest Fixture Lifecycle,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9596,104988,2026-07-26T00:12:23.587877
+testing-broken-fixture,Fix Broken Pytest Fixture Lifecycle,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.9404,5028,2026-07-26T00:12:26.529877
+testing-broken-fixture,Fix Broken Pytest Fixture Lifecycle,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.7596,5014,2026-07-26T00:12:28.290954
+testing-broken-fixture,Fix Broken Pytest Fixture Lifecycle,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.9309,5014,2026-07-26T00:12:30.223529
+testing-missing-integration,Add Missing Payment Gateway Integration Test,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,2.8645,104990,2026-07-26T00:12:33.089614
+testing-missing-integration,Add Missing Payment Gateway Integration Test,relay_full,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.7759,104975,2026-07-26T00:12:34.867297
+testing-missing-integration,Add Missing Payment Gateway Integration Test,relay_full,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.7757,104975,2026-07-26T00:12:36.644919
+testing-missing-integration,Add Missing Payment Gateway Integration Test,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.9472,104975,2026-07-26T00:12:38.594992
+testing-missing-integration,Add Missing Payment Gateway Integration Test,naive_truncation,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.1779,104990,2026-07-26T00:12:41.775829
+testing-missing-integration,Add Missing Payment Gateway Integration Test,naive_truncation,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.6901,104975,2026-07-26T00:12:43.467818
+testing-missing-integration,Add Missing Payment Gateway Integration Test,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.4249,5030,2026-07-26T00:12:46.895601
+testing-missing-integration,Add Missing Payment Gateway Integration Test,no_limit_baseline,2,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.9787,5015,2026-07-26T00:12:48.878956
+testing-missing-integration,Add Missing Payment Gateway Integration Test,no_limit_baseline,3,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.5175,5030,2026-07-26T00:12:52.398952
+testing-mocking-failure,Fix Unmocked Network Call in Unit Tests,relay_full,1,False,0,1,0.0,0,0,0.0,0.0,0,0.0,8.3272,105044,2026-07-26T00:13:00.730813
+testing-mocking-failure,Fix Unmocked Network Call in Unit Tests,relay_full,2,False,0,1,0.0,0,0,0.0,0.0,0,0.0,7.4143,105044,2026-07-26T00:13:08.147019
+testing-mocking-failure,Fix Unmocked Network Call in Unit Tests,relay_full,3,False,0,1,0.0,0,0,0.0,0.0,0,0.0,9.2662,105044,2026-07-26T00:13:17.415288
+testing-mocking-failure,Fix Unmocked Network Call in Unit Tests,naive_truncation,1,False,0,1,0.0,0,0,0.0,0.0,0,0.0,10.7794,105044,2026-07-26T00:13:28.196680
+testing-mocking-failure,Fix Unmocked Network Call in Unit Tests,naive_truncation,2,False,0,1,0.0,0,0,0.0,0.0,0,0.0,14.5913,105044,2026-07-26T00:13:42.791354
+testing-mocking-failure,Fix Unmocked Network Call in Unit Tests,naive_truncation,3,False,0,1,0.0,0,0,0.0,0.0,0,0.0,11.0179,105044,2026-07-26T00:13:53.812757
+testing-mocking-failure,Fix Unmocked Network Call in Unit Tests,no_limit_baseline,1,False,0,1,0.0,0,0,0.0,0.0,0,0.0,7.5393,5084,2026-07-26T00:14:01.354546
+testing-mocking-failure,Fix Unmocked Network Call in Unit Tests,no_limit_baseline,2,False,0,1,0.0,0,0,0.0,0.0,0,0.0,8.3479,5084,2026-07-26T00:14:09.704245
+testing-mocking-failure,Fix Unmocked Network Call in Unit Tests,no_limit_baseline,3,False,0,1,0.0,0,0,0.0,0.0,0,0.0,7.7096,5084,2026-07-26T00:14:17.415552
