@@ -39,3 +39,4 @@ Thumbs.db
 # Relay runtime data
 .relay/checkpoints/
 .relay/traces/
+artifacts/v2/traces/
