@@ -1,6 +1,6 @@
 # RelayBench Benchmark v2 — Live Agent Evaluation Report
 
-> **Run Date**: `2026-07-26 00:16:03`  
+> **Run Date**: `2026-07-26 00:16:19`  
 > **Tasks Evaluated**: 32  
 > **Iterations per Task**: 3  
 > **Total Independent Runs**: 288  
@@ -24,11 +24,11 @@
 |:---|:---:|:---:|:---:|:---:|
 | **Completion Rate** | **0.8750** ± 0.0665 | 0.8750 ± 0.0665 | 0.8750 ± 0.0665 | $p = 1.0000$ |
 | **Dead-End Retries** | **0.0000** | 0.0000 | 0.0000 | $p = 1.0000$ |
-| **Repeated Work** | **0.3750** | 0.3750 | 0.3854 | — |
+| **Repeated Work** | **0.3750** | 0.3750 | 0.3750 | — |
 | **Retrieval Precision** | **0.0000** | 0.0000 | 0.0000 | — |
 | **Retrieval Recall** | **0.0000** | 0.0000 | 0.0000 | — |
 | **Handoff Latency (ms)** | **0.00 ms** | 0.00 ms | 0.00 ms | — |
-| **Execution Duration (s)** | **3.807 s** | 3.517 s | 3.655 s | — |
+| **Execution Duration (s)** | **3.534 s** | 3.690 s | 3.591 s | — |
 
 ---
 
