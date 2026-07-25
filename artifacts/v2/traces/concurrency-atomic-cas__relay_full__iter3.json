@@ -13,7 +13,7 @@
   "retrieval_recall": 0.0,
   "handoff_count": 0,
   "handoff_latency_seconds": 0.0,
-  "total_duration_seconds": 2.9467,
-  "tokens_consumed": 104976,
-  "timestamp": "2026-07-26T00:02:35.412188"
+  "total_duration_seconds": 3.7828,
+  "tokens_consumed": 104992,
+  "timestamp": "2026-07-26T00:04:49.351292"
 }
