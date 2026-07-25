@@ -15,22 +15,30 @@ app = FastAPI(
     redoc_url="/redoc",
 )
 
-# Enable CORS for Next.js frontend visualization
+# Enable CORS for Next.js frontend visualization & external web apps
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-        "http://localhost:8000",
-    ],
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "DELETE", "OPTIONS"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # Include API Routers
 app.include_router(checkpoint.router)
 app.include_router(benchmark.router)
+
+
+@app.get("/", tags=["System"])
+def root():
+    """Root metadata endpoint."""
+    return {
+        "status": "online",
+        "service": "Relay API — Context Continuity Middleware",
+        "version": __version__,
+        "docs": "/docs",
+        "health": "/health"
+    }
 
 
 @app.get("/health", tags=["System"])
