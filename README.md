@@ -2,14 +2,24 @@
 
 # ⚡ Relay v1.0
 
-**Open-source infrastructure middleware and evaluation benchmark for context-continuous AI coding agents.**
+**Context-Handoff Protocol & Infrastructure Middleware for Long-Running AI Coding Agents**
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688.svg)](https://fastapi.tiangolo.com)
 [![LangGraph](https://img.shields.io/badge/LangGraph-Orchestration-orange.svg)](https://github.com/langchain-ai/langgraph)
 [![Qdrant](https://img.shields.io/badge/Qdrant-Vector--Store-red.svg)](https://qdrant.tech)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![CI Status](https://img.shields.io/badge/CI-Passing-brightgreen.svg)](.github/workflows/ci.yml)
+[![Tests: 50/50 Passing](https://img.shields.io/badge/Tests-50%2F50%20Passing-brightgreen.svg)](tests/)
+[![Author](https://img.shields.io/badge/Author-neo0007777-purple.svg)](https://github.com/neo0007777)
+
+<br/>
+
+[Quick Start](#-quick-start-under-2-minutes) •
+[Architecture](#%EF%B8%8F-system-architecture--data-flow) •
+[Features](#-core-capabilities--technical-innovations) •
+[Benchmark v2](#-relaybench-evaluation-results-benchmark-v2) •
+[CLI & API Reference](#-cli--api-reference) •
+[Docker Deployment](#-docker-deployment)
 
 </div>
 
@@ -17,32 +27,47 @@
 
 ## 📌 Executive Summary
 
-Context-window exhaustion is the primary bottleneck preventing autonomous AI coding agents (Claude Code, OpenHands, Codex, Devin) from completing complex, multi-file software engineering tasks.
+Long-running autonomous AI coding agents (Claude Code, OpenHands, Codex CLI, Aider, Devin-style systems) hit a fundamental physical limit: **context window exhaustion**. As an agent reads multi-file repositories, runs tests, inspects tracebacks, and executes tool calls, its context window fills rapidly.
 
-Standard approaches attempt to solve context exhaustion by either **naively truncating chat history** or generating an **unstructured LLM paragraph summary**. Both methods suffer from severe context degradation:
-1. **Loss of Exact Code State**: Variable signatures, line numbers, error tracebacks, and exact diffs disappear during summarization.
-2. **Repeated Dead Ends**: Fresh agent instances lack memory of *failed attempts*. As a result, agents routinely retry identical broken patches, wasting tokens and looping endlessly.
+Existing systems resort to two crude recovery strategies when context limit is approached:
+1. **Truncation**: Blindly dropping early chat messages, destroying architectural decisions, variable definitions, and file context.
+2. **Unstructured Paragraph Summarization**: Prompting an LLM to "summarize history", which loses precise line numbers, AST symbol signatures, exact git diffs, and failing tracebacks.
 
-**Relay** is infrastructure middleware that replaces conversational summarization with **Structured Knowledge Checkpointing**, **Why-NOT Memory**, and **Multi-Signal Hybrid Retrieval**. By preserving **reasoning state, decision trees, a "Why-NOT" store of rejected approaches, and AST symbol deltas**, Relay allows fresh agent instances to resume complex engineering tasks without repeating work or retrying dead ends.
+Both methods lead to severe failure modes — most notably **Dead-End Loops**, where a fresh agent instance forgets previously rejected hypotheses and endlessly retries the exact same broken patches.
+
+### The Relay Solution
+
+**Relay** is open-source infrastructure middleware that replaces conversational summarization with **Structured Knowledge Checkpointing**, **Why-NOT Memory**, and **Multi-Signal Hybrid Retrieval**.
+
+When context usage reaches a configurable threshold (e.g., 85%), Relay interceptors checkpoint the active session into an immutable `KnowledgeCheckpoint` containing:
+- **Narrative Progress**: Structured task goal and step summary.
+- **Decision Log**: Key architectural choices made and their rationales.
+- **Why-NOT Store**: Explicit memory of *failed hypotheses, rejected patches, and runtime tracebacks*.
+- **AST Symbol Deltas**: Class/function definitions modified or created.
+- **JIT Context Retrieval**: Hybrid vector (Qdrant) + graph (AST proximity) retrieval of relevant workspace chunks.
+
+Fresh agent instances resume from a synthesized, highly token-efficient system prompt — allowing tasks to continue seamlessly across context boundaries without repeating work or retrying dead ends.
 
 ---
 
 ## 🚀 Quick Start (Under 2 Minutes)
 
 ```bash
-# 1. Clone repository & install Relay
-git clone https://github.com/relay-ai/relay.git
+# 1. Clone repository & enter directory
+git clone https://github.com/neo0007777/relay.git
 cd relay
+
+# 2. Install package in editable mode
 pip install -e .
 
-# 2. Run unit & integration test suite (43 tests)
+# 3. Run complete unit & integration test suite (50/50 passing)
 python3 -m pytest tests/ -v
 
-# 3. Execute QuickStart Example
-python3 examples/quickstart.py
+# 4. Run quickstart handoff demo script
+python3 scripts/demo_1_context_handoff.py
 
-# 4. Execute Benchmark Evaluation Suite & Generate Evidence Package
-relay benchmark --limit 2 --output artifacts/
+# 5. Run RelayBench Benchmark v2 suite
+python3 scripts/run_benchmark_v2.py --iterations 3
 ```
 
 ---
@@ -50,42 +75,43 @@ relay benchmark --limit 2 --output artifacts/
 ## 🏗️ System Architecture & Data Flow
 
 ```
-                                  [ Agent Session ]
-                                          │
-                                 (Token Usage ≥ 85%)
-                                          │
-                                          ▼
-                         ┌─────────────────────────────────┐
-                         │   Context Monitor Interceptor   │
-                         └─────────────────────────────────┘
-                                          │
-                                          ▼
-                         ┌─────────────────────────────────┐
-                         │   Knowledge Checkpoint Engine   │
-                         ├─────────────────────────────────┤
-                         │  • Narrative Progress           │
-                         │  • Decision Tree & Rationale    │
-                         │  • "Why-NOT" Dead-End Store     │
-                         │  • Git Diff & AST Symbol Deltas │
-                         │  • Touched Dependency Graph     │
-                         └─────────────────────────────────┘
-                                          │
-                                          ▼
-                         ┌─────────────────────────────────┐
-                         │  Hybrid Graph & Vector Store    │
-                         ├─────────────────────────────────┤
-                         │  Qdrant Dense Embeddings        │
-                         │  + AST Topological Proximity    │
-                         │  + Edit Recency Reranker        │
-                         └─────────────────────────────────┘
-                                          │
-                                          ▼
-                         ┌─────────────────────────────────┐
-                         │  LangGraph Handoff Machine      │
-                         ├─────────────────────────────────┤
-                         │  Synthesizes System Prompt &    │
-                         │  Resumes Fresh Agent Instance   │
-                         └─────────────────────────────────┘
+                                  ┌───────────────────────────┐
+                                  │    Active Agent Session   │
+                                  └─────────────┬─────────────┘
+                                                │
+                                       (Token Usage ≥ 85%)
+                                                │
+                                                ▼
+                               ┌─────────────────────────────────┐
+                               │   Context Monitor Interceptor   │
+                               └────────────────┬────────────────┘
+                                                │
+                                                ▼
+                               ┌─────────────────────────────────┐
+                               │   Knowledge Checkpoint Engine   │
+                               ├─────────────────────────────────┤
+                               │  • Task Goal & Narrative       │
+                               │  • Architectural Decision Tree  │
+                               │  • "Why-NOT" Dead-End Memory    │
+                               │  • Git Diffs & AST Deltas       │
+                               └────────────────┬────────────────┘
+                                                │
+                                                ▼
+                               ┌─────────────────────────────────┐
+                               │  Hybrid Graph & Vector Reranker │
+                               ├─────────────────────────────────┤
+                               │  • Qdrant Dense Vector Store    │
+                               │  • AST Topological Proximity    │
+                               │  • Edit Recency Scoring         │
+                               └────────────────┬────────────────┘
+                                                │
+                                                ▼
+                               ┌─────────────────────────────────┐
+                               │  LangGraph Handoff Orchestrator │
+                               ├─────────────────────────────────┤
+                               │  Synthesizes System Prompt &    │
+                               │  Resumes Fresh Agent Session    │
+                               └─────────────────────────────────┘
 ```
 
 ---
@@ -93,11 +119,17 @@ relay benchmark --limit 2 --output artifacts/
 ## 💡 Core Capabilities & Technical Innovations
 
 ### 1. Multi-Signal Intelligent Triggers
-`ContextMonitor` dynamically evaluates token usage ratios, rapid file edit velocity, consecutive tool failure counts, and reasoning chains to trigger handoff before context exhaustion:
+`ContextMonitor` continuously evaluates 5 distinct signals to trigger handoffs before catastrophic context overflow:
+- **Token Ratio**: Usage vs maximum provider token limit.
+- **Edit Velocity**: High frequency of rapid file modifications.
+- **Repeated Tool Failures**: Consecutive command exit-code failures.
+- **Reasoning Loop Detection**: Long chains of reasoning without state progress.
+- **Explicit Trigger**: Programmatic or manual checkpoint boundary.
+
 $$\text{NORMAL} \longrightarrow \text{WARNING} \longrightarrow \text{CHECKPOINT\_REQUIRED} \longrightarrow \text{HANDOFF\_IN\_PROGRESS} \longrightarrow \text{RESUMED}$$
 
 ### 2. Structured Knowledge Checkpointing
-Instead of serializing raw chat messages into a single text blob, Relay constructs a structured `KnowledgeCheckpoint` with SHA-256 integrity verification:
+Relay serializes task state into an atomic, SHA-256 verified `KnowledgeCheckpoint` JSON schema:
 
 ```json
 {
@@ -132,18 +164,21 @@ Instead of serializing raw chat messages into a single text blob, Relay construc
 ```
 
 ### 3. The "Why-NOT" Store (Dead-End Memory)
-The highest-impact innovation in Relay is the explicit cataloging of **rejected approaches and confirmed dead ends**. When a fresh agent resumes execution, the Why-NOT store explicitly instructs the model:
-> *"❌ DO NOT RETRY: Mutex lock around refresh queue — failed due to DeadlockError."*
+The most impactful technical innovation in Relay is the explicit cataloging of **rejected hypotheses and dead ends**. When a fresh agent resumes after handoff, the prompt builder injects explicit negative constraints:
+
+> ❌ **DO NOT RETRY PREVIOUSLY FAILED APPROACHES:**
+> - `Mutex lock around refresh queue`: Failed due to `DeadlockError: lock timeout after 5.0s`.
 
 ### 4. Multi-Signal Hybrid Reranker
-Relay combines semantic vector similarity with AST graph structure and file edit recency:
+Retrieves relevant code context for the resumed session by scoring chunks across 4 orthogonal dimensions:
+
 $$\text{Score} = 0.40 \cdot S_{\text{vector}} + 0.30 \cdot S_{\text{graph}} + 0.20 \cdot S_{\text{recency}} + 0.10 \cdot S_{\text{ast}}$$
 
 ---
 
 ## 📊 RelayBench Evaluation Results (Benchmark v2)
 
-Evaluated across **288 independent runs** (32 benchmark tasks × 3 experimental conditions × 3 iterations) using an autonomous problem-solving agent loop with **zero expected solution injection**.
+RelayBench v2 is an autonomous, live agent evaluation suite spanning **288 independent runs** across 32 tasks and 3 experimental conditions with **ZERO solution injection**:
 
 | Strategy / Scenario | Completion Rate | 95% Confidence Interval | Dead-End Retries (mean) | Handoff Latency (ms) | Welch's $p$-value |
 |:---|:---:|:---:|:---:|:---:|:---:|
@@ -151,24 +186,45 @@ Evaluated across **288 independent runs** (32 benchmark tasks × 3 experimental 
 | **Naive Truncation (Baseline)** | 92.7% | $\pm 0.0521$ | 0.28 | 0.00 ms | **$p = 0.0042$** (Significant) |
 | **Unlimited Context (Upper Bound)** | 100.0% | $\pm 0.0000$ | 0.00 | 0.00 ms | $p = 1.0000$ |
 
-> *Note: Naive Truncation forgets rejected patch attempts when context is reset, leading to **0.28 dead-end retries per session** ($p = 0.0001$). Relay's `WhyNotStore` memory prevents dead-end repetition.*
+> **Key Finding**: Under Naive Truncation, agents lose memory of rejected approaches when context resets, resulting in **0.28 dead-end retries per session** ($p = 0.0001$). Relay's `WhyNotStore` eliminates dead-end repetition entirely.
 
 ---
 
-## 🛠️ CLI Reference
+## 🛠️ CLI & API Reference
+
+### CLI Commands
 
 ```bash
-# Run agent session through Relay middleware
-relay run claude --project . --goal "Refactor auth middleware"
+# Run an agent task through Relay middleware
+relay run claude --project . --goal "Refactor database connection pool"
 
-# Execute benchmark suite and generate 15-file evidence package
-relay benchmark --repetitions 1 --limit 5 --output artifacts/
-
-# Replay an execution trace in isolated sandbox
-relay replay .relay/traces/trace_sample.jsonl
+# Execute Benchmark v2 evaluation suite
+python3 scripts/run_benchmark_v2.py --iterations 3
 
 # List persisted checkpoints
 relay checkpoint list
+
+# Replay an execution trace in sandbox environment
+relay replay .relay/traces/trace_sample.jsonl
+```
+
+### FastAPI Endpoints
+
+Relay exposes REST APIs for remote agent orchestration:
+
+```bash
+# Health Check
+curl http://localhost:8000/health
+
+# Trigger Manual Checkpoint
+curl -X POST http://localhost:8000/api/v1/checkpoint \
+  -H "Content-Type: application/json" \
+  -d '{"session_id": "sess-123", "task_goal": "Optimize query"}'
+
+# Execute Handoff
+curl -X POST http://localhost:8000/api/v1/handoff \
+  -H "Content-Type: application/json" \
+  -d '{"session_id": "sess-123"}'
 ```
 
 ---
@@ -176,27 +232,48 @@ relay checkpoint list
 ## 🐳 Docker Deployment
 
 ```bash
-# Build and run with Docker Compose (FastAPI + Qdrant Vector DB)
+# Start Relay API server & Qdrant vector database
 docker-compose up --build -d
 
-# Verify API status
-curl http://localhost:8000/health
+# Check service container status
+docker-compose ps
 ```
 
 ---
 
-## 📜 Documentation Links & Reports
+## 💻 Frontend Dashboard (Next.js)
+
+Relay includes a modern Next.js + Tailwind visualization web app:
+
+```bash
+cd frontend
+npm install
+npm run dev
+# Open http://localhost:3000 to view handoff timeline & Qdrant retrieval visualizer
+```
+
+---
+
+## 📜 Documentation & Verification Reports
 
 - 📘 [Claim Verification Matrix](docs/CLAIM_VERIFICATION_MATRIX.md)
 - 🏗️ [Architecture & Security Audit](docs/ARCHITECTURE.md)
 - 💻 [Developer & Contributor Guide](docs/DEVELOPER_GUIDE.md)
 - ⚡ [Empirical Performance Report](docs/PERFORMANCE_REPORT.md)
-- 📈 [Large Repository Scalability Report](docs/SCALABILITY_REPORT.md)
+- 📈 [Scalability Report](docs/SCALABILITY_REPORT.md)
 - 🛡️ [Fault Injection Resilience Report](docs/RESILIENCE_REPORT.md)
 - 📋 [v1.0.0 Release Notes](RELEASE_NOTES_v1.0.0.md)
+- 📑 [Open Source Final Guide](FINAL_RECOMMENDATION.md)
+
+---
+
+## 👤 Author & Contributor
+
+- **GitHub**: [@neo0007777](https://github.com/neo0007777)
+- **Repository**: [https://github.com/neo0007777/relay](https://github.com/neo0007777/relay)
 
 ---
 
 ## 📜 License
 
-MIT License. See [LICENSE](LICENSE) for details.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.

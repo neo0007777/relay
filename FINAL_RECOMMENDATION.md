@@ -11,7 +11,7 @@
 ### 1. Push Codebase to GitHub
 ```bash
 # Set your GitHub repository remote
-git remote add origin git@github.com:YOUR_USERNAME/relay.git
+git remote add origin git@github.com:neo0007777/relay.git
 
 # Push main branch & release tag
 git branch -M main
