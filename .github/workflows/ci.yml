@@ -1,0 +1,71 @@
+name: Relay CI Validation
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate-relay:
+    name: Relay CI Technical Evaluation Suite
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Install System & Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .[dev]
+
+      - name: Code Style & Syntax Linting (black & flake8)
+        run: |
+          black --check relay/ tests/ scripts/
+          flake8 relay/ tests/ --max-line-length=120 --extend-ignore=E203,E501,F401,W503
+
+      - name: Static Type Checking (mypy)
+        run: |
+          mypy relay/ --ignore-missing-imports
+
+      - name: Run Pytest Unit & Integration Test Suite
+        run: |
+          python -m pytest tests/ -v --cov=relay --cov-report=term-missing --cov-report=xml
+
+      - name: Run Demo 1 — Context Handoff Execution
+        run: |
+          python scripts/demo_1_context_handoff.py
+
+      - name: Run Demo 2 — Benchmark Comparison Execution
+        run: |
+          python scripts/demo_2_benchmark_comparison.py
+
+      - name: Run Demo 3 — Stage-by-Stage Hybrid Retrieval
+        run: |
+          python scripts/demo_3_hybrid_retrieval.py
+
+      - name: Run CLI Middleware Smoke Test
+        run: |
+          relay run claude --project . --goal "CI Verification Run"
+
+      - name: Verify Evidence Artifact Generation
+        run: |
+          relay benchmark --limit 2 --output artifacts/
+          test -f artifacts/benchmark_report.json
+          test -f artifacts/benchmark_report.csv
+          test -f artifacts/retrieval_report.json
+          test -f artifacts/checkpoint_report.json
+          test -f artifacts/trace_report.json
+          test -f artifacts/evaluation_summary.md
+          echo "✅ All 6 evidence artifacts generated and validated cleanly!"

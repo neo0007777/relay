@@ -1,0 +1,11 @@
+{
+  "task_id": "concurrency-asyncio-deadlock",
+  "title": "Fix Asyncio Lock Timeout Deadlock",
+  "category": "concurrency",
+  "difficulty": "medium",
+  "estimated_steps": 20,
+  "target_files": [
+    "src/concurrency/queue_manager.py"
+  ],
+  "test_script_path": "tests/test_task.py"
+}

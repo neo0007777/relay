@@ -1,0 +1,8 @@
+category: backend
+difficulty: medium
+estimated_steps: 20
+target_files:
+- src/backend/validator.py
+task_id: backend-rest-refactor
+test_script_path: tests/test_task.py
+title: REST Payload Validation Refactor

@@ -1,0 +1,30 @@
+{
+  "task_id": "api-rate-limiter",
+  "scenario": "relay_full",
+  "iteration": 2,
+  "trace_steps": 4,
+  "result": {
+    "task_id": "api-rate-limiter",
+    "title": "Sliding Window Rate Limiter",
+    "scenario": "relay_full",
+    "iteration": 2,
+    "timestamp": "2026-07-25T23:48:06.278640",
+    "task_completed": true,
+    "tests_passed": 1,
+    "tests_total": 1,
+    "completion_rate": 1.0,
+    "continuity_score": 0.6666,
+    "retrieval_precision": 0.3333,
+    "retrieval_recall": 1.0,
+    "repeated_work_count": 0,
+    "dead_end_retries": 0,
+    "code_regression_count": 0,
+    "handoff_count": 1,
+    "handoff_latency_seconds": 0.002,
+    "total_duration_seconds": 0.437,
+    "total_tokens_consumed": 111431,
+    "retrieved_chunk_count": 3,
+    "status": "ok",
+    "error": null
+  }
+}

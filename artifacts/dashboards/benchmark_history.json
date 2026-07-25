@@ -1,0 +1,1100 @@
+[
+  {
+    "run_id": "run-s2-6beb6a94",
+    "timestamp": "2026-07-25T14:36:00.746983",
+    "tasks_evaluated": 2,
+    "iterations_per_task": 1,
+    "scenario_summaries": {
+      "relay_full": {
+        "count": 2,
+        "completion_rate": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "continuity_score": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_precision": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_recall": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "repeated_work_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "dead_end_retries": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "code_regression_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_tokens_consumed": {
+          "mean": 105024.0,
+          "median": 105024.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "handoff_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_duration_seconds": {
+          "mean": 0.5065,
+          "median": 0.5065,
+          "std_dev": 0.0615,
+          "ci95": 0.0853
+        }
+      },
+      "naive_truncation": {
+        "count": 2,
+        "completion_rate": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "continuity_score": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_precision": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_recall": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "repeated_work_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "dead_end_retries": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "code_regression_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_tokens_consumed": {
+          "mean": 105017.0,
+          "median": 105017.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "handoff_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_duration_seconds": {
+          "mean": 0.4295,
+          "median": 0.4295,
+          "std_dev": 0.0092,
+          "ci95": 0.0127
+        }
+      },
+      "no_limit_baseline": {
+        "count": 2,
+        "completion_rate": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "continuity_score": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_precision": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_recall": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "repeated_work_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "dead_end_retries": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "code_regression_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_tokens_consumed": {
+          "mean": 5064.0,
+          "median": 5064.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "handoff_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_duration_seconds": {
+          "mean": 0.5015,
+          "median": 0.5015,
+          "std_dev": 0.0601,
+          "ci95": 0.0833
+        }
+      },
+      "no_why_not": {
+        "count": 2,
+        "completion_rate": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "continuity_score": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_precision": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_recall": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "repeated_work_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "dead_end_retries": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "code_regression_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_tokens_consumed": {
+          "mean": 105024.0,
+          "median": 105024.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "handoff_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_duration_seconds": {
+          "mean": 0.4835,
+          "median": 0.4835,
+          "std_dev": 0.0742,
+          "ci95": 0.1029
+        }
+      },
+      "no_ast": {
+        "count": 2,
+        "completion_rate": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "continuity_score": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_precision": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_recall": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "repeated_work_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "dead_end_retries": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "code_regression_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_tokens_consumed": {
+          "mean": 105024.0,
+          "median": 105024.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "handoff_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_duration_seconds": {
+          "mean": 0.445,
+          "median": 0.445,
+          "std_dev": 0.0198,
+          "ci95": 0.0274
+        }
+      },
+      "no_graph": {
+        "count": 2,
+        "completion_rate": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "continuity_score": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_precision": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_recall": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "repeated_work_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "dead_end_retries": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "code_regression_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_tokens_consumed": {
+          "mean": 105024.0,
+          "median": 105024.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "handoff_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_duration_seconds": {
+          "mean": 0.451,
+          "median": 0.451,
+          "std_dev": 0.0339,
+          "ci95": 0.047
+        }
+      },
+      "vector_only": {
+        "count": 2,
+        "completion_rate": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "continuity_score": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_precision": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_recall": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "repeated_work_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "dead_end_retries": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "code_regression_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_tokens_consumed": {
+          "mean": 105024.0,
+          "median": 105024.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "handoff_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_duration_seconds": {
+          "mean": 0.4715,
+          "median": 0.4715,
+          "std_dev": 0.0431,
+          "ci95": 0.0598
+        }
+      }
+    },
+    "ablation_matrix": {
+      "relay_full": {
+        "count": 2,
+        "completion_rate": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "continuity_score": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_precision": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_recall": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "repeated_work_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "dead_end_retries": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "code_regression_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_tokens_consumed": {
+          "mean": 105024.0,
+          "median": 105024.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "handoff_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_duration_seconds": {
+          "mean": 0.5065,
+          "median": 0.5065,
+          "std_dev": 0.0615,
+          "ci95": 0.0853
+        }
+      },
+      "no_why_not": {
+        "count": 2,
+        "completion_rate": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "continuity_score": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_precision": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_recall": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "repeated_work_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "dead_end_retries": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "code_regression_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_tokens_consumed": {
+          "mean": 105024.0,
+          "median": 105024.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "handoff_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_duration_seconds": {
+          "mean": 0.4835,
+          "median": 0.4835,
+          "std_dev": 0.0742,
+          "ci95": 0.1029
+        }
+      },
+      "no_ast": {
+        "count": 2,
+        "completion_rate": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "continuity_score": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_precision": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_recall": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "repeated_work_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "dead_end_retries": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "code_regression_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_tokens_consumed": {
+          "mean": 105024.0,
+          "median": 105024.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "handoff_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_duration_seconds": {
+          "mean": 0.445,
+          "median": 0.445,
+          "std_dev": 0.0198,
+          "ci95": 0.0274
+        }
+      },
+      "no_graph": {
+        "count": 2,
+        "completion_rate": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "continuity_score": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_precision": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_recall": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "repeated_work_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "dead_end_retries": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "code_regression_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_tokens_consumed": {
+          "mean": 105024.0,
+          "median": 105024.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "handoff_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_duration_seconds": {
+          "mean": 0.451,
+          "median": 0.451,
+          "std_dev": 0.0339,
+          "ci95": 0.047
+        }
+      },
+      "vector_only": {
+        "count": 2,
+        "completion_rate": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "continuity_score": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_precision": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "retrieval_recall": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "repeated_work_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "dead_end_retries": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "code_regression_count": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_tokens_consumed": {
+          "mean": 105024.0,
+          "median": 105024.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "handoff_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std_dev": 0.0,
+          "ci95": 0.0
+        },
+        "total_duration_seconds": {
+          "mean": 0.4715,
+          "median": 0.4715,
+          "std_dev": 0.0431,
+          "ci95": 0.0598
+        }
+      }
+    },
+    "relay_summary": {
+      "avg_completion_rate": 0.0,
+      "avg_continuity_score": 0.0,
+      "avg_retrieval_precision": 0.0,
+      "avg_retrieval_recall": 0.0,
+      "avg_repeated_work_count": 0.0,
+      "avg_dead_end_retries": 0.0,
+      "avg_code_regression_count": 0.0,
+      "avg_total_tokens_consumed": 105024.0,
+      "avg_handoff_latency_seconds": 0.0,
+      "avg_total_duration_seconds": 0.5065
+    },
+    "naive_truncation_summary": {
+      "avg_completion_rate": 0.0,
+      "avg_continuity_score": 0.0,
+      "avg_retrieval_precision": 0.0,
+      "avg_retrieval_recall": 0.0,
+      "avg_repeated_work_count": 0.0,
+      "avg_dead_end_retries": 0.0,
+      "avg_code_regression_count": 0.0,
+      "avg_total_tokens_consumed": 105017.0,
+      "avg_handoff_latency_seconds": 0.0,
+      "avg_total_duration_seconds": 0.4295
+    },
+    "no_limit_baseline_summary": {
+      "avg_completion_rate": 0.0,
+      "avg_continuity_score": 0.0,
+      "avg_retrieval_precision": 0.0,
+      "avg_retrieval_recall": 0.0,
+      "avg_repeated_work_count": 0.0,
+      "avg_dead_end_retries": 0.0,
+      "avg_code_regression_count": 0.0,
+      "avg_total_tokens_consumed": 5064.0,
+      "avg_handoff_latency_seconds": 0.0,
+      "avg_total_duration_seconds": 0.5015
+    },
+    "metrics_per_task": [
+      {
+        "scenario": "relay_full",
+        "task_id": "api-graphql-resolver",
+        "iteration": 1,
+        "task_completed": false,
+        "tests_passed": 0,
+        "tests_total": 1,
+        "completion_rate": 0.0,
+        "repeated_work_count": 0,
+        "dead_end_retries": 0,
+        "code_regression_count": 0,
+        "continuity_score": 0.0,
+        "total_tokens_consumed": 105024,
+        "handoff_count": 1,
+        "total_duration_seconds": 0.55,
+        "handoff_latency_seconds": 0.0,
+        "retrieved_chunk_count": 0,
+        "relevant_chunks_retrieved": 0,
+        "retrieval_precision": 0.0,
+        "retrieval_recall": 0.0
+      },
+      {
+        "scenario": "naive_truncation",
+        "task_id": "api-graphql-resolver",
+        "iteration": 1,
+        "task_completed": false,
+        "tests_passed": 0,
+        "tests_total": 1,
+        "completion_rate": 0.0,
+        "repeated_work_count": 0,
+        "dead_end_retries": 0,
+        "code_regression_count": 0,
+        "continuity_score": 0.0,
+        "total_tokens_consumed": 105017,
+        "handoff_count": 1,
+        "total_duration_seconds": 0.436,
+        "handoff_latency_seconds": 0.0,
+        "retrieved_chunk_count": 0,
+        "relevant_chunks_retrieved": 0,
+        "retrieval_precision": 0.0,
+        "retrieval_recall": 0.0
+      },
+      {
+        "scenario": "no_limit_baseline",
+        "task_id": "api-graphql-resolver",
+        "iteration": 1,
+        "task_completed": false,
+        "tests_passed": 0,
+        "tests_total": 1,
+        "completion_rate": 0.0,
+        "repeated_work_count": 0,
+        "dead_end_retries": 0,
+        "code_regression_count": 0,
+        "continuity_score": 0.0,
+        "total_tokens_consumed": 5064,
+        "handoff_count": 0,
+        "total_duration_seconds": 0.544,
+        "handoff_latency_seconds": 0.0,
+        "retrieved_chunk_count": 0,
+        "relevant_chunks_retrieved": 0,
+        "retrieval_precision": 0.0,
+        "retrieval_recall": 0.0
+      },
+      {
+        "scenario": "no_why_not",
+        "task_id": "api-graphql-resolver",
+        "iteration": 1,
+        "task_completed": false,
+        "tests_passed": 0,
+        "tests_total": 1,
+        "completion_rate": 0.0,
+        "repeated_work_count": 0,
+        "dead_end_retries": 0,
+        "code_regression_count": 0,
+        "continuity_score": 0.0,
+        "total_tokens_consumed": 105024,
+        "handoff_count": 1,
+        "total_duration_seconds": 0.536,
+        "handoff_latency_seconds": 0.0,
+        "retrieved_chunk_count": 0,
+        "relevant_chunks_retrieved": 0,
+        "retrieval_precision": 0.0,
+        "retrieval_recall": 0.0
+      },
+      {
+        "scenario": "no_ast",
+        "task_id": "api-graphql-resolver",
+        "iteration": 1,
+        "task_completed": false,
+        "tests_passed": 0,
+        "tests_total": 1,
+        "completion_rate": 0.0,
+        "repeated_work_count": 0,
+        "dead_end_retries": 0,
+        "code_regression_count": 0,
+        "continuity_score": 0.0,
+        "total_tokens_consumed": 105024,
+        "handoff_count": 1,
+        "total_duration_seconds": 0.459,
+        "handoff_latency_seconds": 0.0,
+        "retrieved_chunk_count": 0,
+        "relevant_chunks_retrieved": 0,
+        "retrieval_precision": 0.0,
+        "retrieval_recall": 0.0
+      },
+      {
+        "scenario": "no_graph",
+        "task_id": "api-graphql-resolver",
+        "iteration": 1,
+        "task_completed": false,
+        "tests_passed": 0,
+        "tests_total": 1,
+        "completion_rate": 0.0,
+        "repeated_work_count": 0,
+        "dead_end_retries": 0,
+        "code_regression_count": 0,
+        "continuity_score": 0.0,
+        "total_tokens_consumed": 105024,
+        "handoff_count": 1,
+        "total_duration_seconds": 0.475,
+        "handoff_latency_seconds": 0.0,
+        "retrieved_chunk_count": 0,
+        "relevant_chunks_retrieved": 0,
+        "retrieval_precision": 0.0,
+        "retrieval_recall": 0.0
+      },
+      {
+        "scenario": "vector_only",
+        "task_id": "api-graphql-resolver",
+        "iteration": 1,
+        "task_completed": false,
+        "tests_passed": 0,
+        "tests_total": 1,
+        "completion_rate": 0.0,
+        "repeated_work_count": 0,
+        "dead_end_retries": 0,
+        "code_regression_count": 0,
+        "continuity_score": 0.0,
+        "total_tokens_consumed": 105024,
+        "handoff_count": 1,
+        "total_duration_seconds": 0.502,
+        "handoff_latency_seconds": 0.0,
+        "retrieved_chunk_count": 0,
+        "relevant_chunks_retrieved": 0,
+        "retrieval_precision": 0.0,
+        "retrieval_recall": 0.0
+      },
+      {
+        "scenario": "relay_full",
+        "task_id": "api-rate-limiter",
+        "iteration": 1,
+        "task_completed": false,
+        "tests_passed": 0,
+        "tests_total": 1,
+        "completion_rate": 0.0,
+        "repeated_work_count": 0,
+        "dead_end_retries": 0,
+        "code_regression_count": 0,
+        "continuity_score": 0.0,
+        "total_tokens_consumed": 105024,
+        "handoff_count": 1,
+        "total_duration_seconds": 0.463,
+        "handoff_latency_seconds": 0.0,
+        "retrieved_chunk_count": 0,
+        "relevant_chunks_retrieved": 0,
+        "retrieval_precision": 0.0,
+        "retrieval_recall": 0.0
+      },
+      {
+        "scenario": "naive_truncation",
+        "task_id": "api-rate-limiter",
+        "iteration": 1,
+        "task_completed": false,
+        "tests_passed": 0,
+        "tests_total": 1,
+        "completion_rate": 0.0,
+        "repeated_work_count": 0,
+        "dead_end_retries": 0,
+        "code_regression_count": 0,
+        "continuity_score": 0.0,
+        "total_tokens_consumed": 105017,
+        "handoff_count": 1,
+        "total_duration_seconds": 0.423,
+        "handoff_latency_seconds": 0.0,
+        "retrieved_chunk_count": 0,
+        "relevant_chunks_retrieved": 0,
+        "retrieval_precision": 0.0,
+        "retrieval_recall": 0.0
+      },
+      {
+        "scenario": "no_limit_baseline",
+        "task_id": "api-rate-limiter",
+        "iteration": 1,
+        "task_completed": false,
+        "tests_passed": 0,
+        "tests_total": 1,
+        "completion_rate": 0.0,
+        "repeated_work_count": 0,
+        "dead_end_retries": 0,
+        "code_regression_count": 0,
+        "continuity_score": 0.0,
+        "total_tokens_consumed": 5064,
+        "handoff_count": 0,
+        "total_duration_seconds": 0.459,
+        "handoff_latency_seconds": 0.0,
+        "retrieved_chunk_count": 0,
+        "relevant_chunks_retrieved": 0,
+        "retrieval_precision": 0.0,
+        "retrieval_recall": 0.0
+      },
+      {
+        "scenario": "no_why_not",
+        "task_id": "api-rate-limiter",
+        "iteration": 1,
+        "task_completed": false,
+        "tests_passed": 0,
+        "tests_total": 1,
+        "completion_rate": 0.0,
+        "repeated_work_count": 0,
+        "dead_end_retries": 0,
+        "code_regression_count": 0,
+        "continuity_score": 0.0,
+        "total_tokens_consumed": 105024,
+        "handoff_count": 1,
+        "total_duration_seconds": 0.431,
+        "handoff_latency_seconds": 0.0,
+        "retrieved_chunk_count": 0,
+        "relevant_chunks_retrieved": 0,
+        "retrieval_precision": 0.0,
+        "retrieval_recall": 0.0
+      },
+      {
+        "scenario": "no_ast",
+        "task_id": "api-rate-limiter",
+        "iteration": 1,
+        "task_completed": false,
+        "tests_passed": 0,
+        "tests_total": 1,
+        "completion_rate": 0.0,
+        "repeated_work_count": 0,
+        "dead_end_retries": 0,
+        "code_regression_count": 0,
+        "continuity_score": 0.0,
+        "total_tokens_consumed": 105024,
+        "handoff_count": 1,
+        "total_duration_seconds": 0.431,
+        "handoff_latency_seconds": 0.0,
+        "retrieved_chunk_count": 0,
+        "relevant_chunks_retrieved": 0,
+        "retrieval_precision": 0.0,
+        "retrieval_recall": 0.0
+      },
+      {
+        "scenario": "no_graph",
+        "task_id": "api-rate-limiter",
+        "iteration": 1,
+        "task_completed": false,
+        "tests_passed": 0,
+        "tests_total": 1,
+        "completion_rate": 0.0,
+        "repeated_work_count": 0,
+        "dead_end_retries": 0,
+        "code_regression_count": 0,
+        "continuity_score": 0.0,
+        "total_tokens_consumed": 105024,
+        "handoff_count": 1,
+        "total_duration_seconds": 0.427,
+        "handoff_latency_seconds": 0.0,
+        "retrieved_chunk_count": 0,
+        "relevant_chunks_retrieved": 0,
+        "retrieval_precision": 0.0,
+        "retrieval_recall": 0.0
+      },
+      {
+        "scenario": "vector_only",
+        "task_id": "api-rate-limiter",
+        "iteration": 1,
+        "task_completed": false,
+        "tests_passed": 0,
+        "tests_total": 1,
+        "completion_rate": 0.0,
+        "repeated_work_count": 0,
+        "dead_end_retries": 0,
+        "code_regression_count": 0,
+        "continuity_score": 0.0,
+        "total_tokens_consumed": 105024,
+        "handoff_count": 1,
+        "total_duration_seconds": 0.441,
+        "handoff_latency_seconds": 0.0,
+        "retrieved_chunk_count": 0,
+        "relevant_chunks_retrieved": 0,
+        "retrieval_precision": 0.0,
+        "retrieval_recall": 0.0
+      }
+    ]
+  }
+]

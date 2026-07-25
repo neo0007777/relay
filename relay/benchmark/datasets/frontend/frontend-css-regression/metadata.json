@@ -1,0 +1,11 @@
+{
+  "task_id": "frontend-css-regression",
+  "title": "CSS Grid Layout Alignment Fix",
+  "category": "frontend",
+  "difficulty": "medium",
+  "estimated_steps": 20,
+  "target_files": [
+    "src/frontend/layout.py"
+  ],
+  "test_script_path": "tests/test_task.py"
+}

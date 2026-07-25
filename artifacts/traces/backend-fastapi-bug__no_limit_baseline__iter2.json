@@ -1,0 +1,30 @@
+{
+  "task_id": "backend-fastapi-bug",
+  "scenario": "no_limit_baseline",
+  "iteration": 2,
+  "trace_steps": 4,
+  "result": {
+    "task_id": "backend-fastapi-bug",
+    "title": "FastAPI Router Path Parameter Fix",
+    "scenario": "no_limit_baseline",
+    "iteration": 2,
+    "timestamp": "2026-07-25T23:48:32.562778",
+    "task_completed": true,
+    "tests_passed": 1,
+    "tests_total": 1,
+    "completion_rate": 1.0,
+    "continuity_score": 0.5,
+    "retrieval_precision": 0.0,
+    "retrieval_recall": 0.0,
+    "repeated_work_count": 0,
+    "dead_end_retries": 0,
+    "code_regression_count": 0,
+    "handoff_count": 0,
+    "handoff_latency_seconds": 0.0,
+    "total_duration_seconds": 0.408,
+    "total_tokens_consumed": 5073,
+    "retrieved_chunk_count": 0,
+    "status": "ok",
+    "error": null
+  }
+}

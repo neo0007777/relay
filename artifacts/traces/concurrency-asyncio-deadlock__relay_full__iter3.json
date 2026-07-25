@@ -1,0 +1,30 @@
+{
+  "task_id": "concurrency-asyncio-deadlock",
+  "scenario": "relay_full",
+  "iteration": 3,
+  "trace_steps": 5,
+  "result": {
+    "task_id": "concurrency-asyncio-deadlock",
+    "title": "Fix Asyncio Lock Timeout Deadlock",
+    "scenario": "relay_full",
+    "iteration": 3,
+    "timestamp": "2026-07-25T23:48:45.703801",
+    "task_completed": true,
+    "tests_passed": 1,
+    "tests_total": 1,
+    "completion_rate": 1.0,
+    "continuity_score": 0.5,
+    "retrieval_precision": 0.0,
+    "retrieval_recall": 0.0,
+    "repeated_work_count": 0,
+    "dead_end_retries": 0,
+    "code_regression_count": 0,
+    "handoff_count": 1,
+    "handoff_latency_seconds": 0.002,
+    "total_duration_seconds": 0.409,
+    "total_tokens_consumed": 111492,
+    "retrieved_chunk_count": 5,
+    "status": "ok",
+    "error": null
+  }
+}

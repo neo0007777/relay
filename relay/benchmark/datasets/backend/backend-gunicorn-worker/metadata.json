@@ -1,0 +1,11 @@
+{
+  "task_id": "backend-gunicorn-worker",
+  "title": "Gunicorn Worker Timeout Adjustment",
+  "category": "backend",
+  "difficulty": "medium",
+  "estimated_steps": 20,
+  "target_files": [
+    "src/backend/gunicorn_conf.py"
+  ],
+  "test_script_path": "tests/test_task.py"
+}

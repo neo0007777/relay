@@ -1,0 +1,8 @@
+category: concurrency
+difficulty: medium
+estimated_steps: 20
+target_files:
+- src/concurrency/pool.py
+task_id: concurrency-threadpool-leak
+test_script_path: tests/test_task.py
+title: Fix ThreadPoolExecutor Shutdown Leak

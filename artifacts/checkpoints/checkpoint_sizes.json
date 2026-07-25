@@ -1,0 +1,13 @@
+{
+  "checkpoint_count": 1,
+  "checkpoints": [
+    {
+      "checkpoint_id": "chk-evidence-sample",
+      "size_bytes": 1549,
+      "uncompressed_bytes": 250000,
+      "compression_ratio": 161.39,
+      "creation_latency_ms": 120.0,
+      "resume_latency_ms": 350.0
+    }
+  ]
+}

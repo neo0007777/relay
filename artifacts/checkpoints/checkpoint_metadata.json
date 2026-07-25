@@ -1,0 +1,17 @@
+[
+  {
+    "checkpoint_id": "chk-evidence-sample",
+    "session_id": "sess-evidence-demo",
+    "task_goal": "Refactor JWT verification flow",
+    "size_bytes": 1549,
+    "uncompressed_size_bytes": 250000,
+    "compression_ratio": 161.39,
+    "creation_latency_ms": 120.0,
+    "resume_latency_ms": 350.0,
+    "retrieved_chunk_count": 2,
+    "decision_count": 1,
+    "why_not_count": 1,
+    "todo_count": 0,
+    "ast_change_count": 0
+  }
+]

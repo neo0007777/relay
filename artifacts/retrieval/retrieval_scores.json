@@ -1,0 +1,23 @@
+{
+  "total_chunks": 2,
+  "scores": [
+    {
+      "chunk_id": "c-1",
+      "file_path": "src/auth/jwt_verifier.py",
+      "final_score": 0.9,
+      "vector": 0.5,
+      "graph": 0.75,
+      "ast": 0.0,
+      "recency": 1.0
+    },
+    {
+      "chunk_id": "c-2",
+      "file_path": "src/config/settings.py",
+      "final_score": 0.66,
+      "vector": 0.5,
+      "graph": 0.2,
+      "ast": 0.0,
+      "recency": 0.2
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "database-sqlite-migration",
+  "title": "Async SQLite Migration Script",
+  "category": "database",
+  "difficulty": "medium",
+  "estimated_steps": 20,
+  "target_files": [
+    "src/db/migrations.py"
+  ],
+  "test_script_path": "tests/test_task.py"
+}

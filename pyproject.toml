@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "relay-ai"
+version = "0.1.0"
+description = "Context continuity middleware and benchmarking framework for long-running AI coding agents"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Relay Core Engineering", email = "dev@relay-ai.org" }
+]
+dependencies = [
+    "pydantic>=2.6.0",
+    "pydantic-settings>=2.2.0",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.28.0",
+    "qdrant-client>=1.8.0",
+    "langgraph>=0.0.30",
+    "langchain-core>=0.1.30"
+]
+
+[project.optional-dependencies]
+dev = [
+    "httpx>=0.27.0",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.5",
+    "pytest-cov>=4.1.0",
+    "black>=24.2.0",
+    "mypy>=1.8.0"
+]
+
+[project.scripts]
+relay = "relay.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+asyncio_mode = "auto"

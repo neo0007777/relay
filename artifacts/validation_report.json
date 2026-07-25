@@ -1,0 +1,13 @@
+{
+  "session_id": "sess-test-sprint5",
+  "checkpoint_id": "chk-ca5d8bc6",
+  "is_fully_preserved": true,
+  "task_goal_preserved": true,
+  "working_directory_preserved": true,
+  "important_files_preserved": true,
+  "decision_log_preserved": true,
+  "why_not_memory_preserved": true,
+  "pending_todos_preserved": true,
+  "missing_items": [],
+  "verification_score": 1.0
+}

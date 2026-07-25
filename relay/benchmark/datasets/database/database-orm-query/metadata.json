@@ -1,0 +1,11 @@
+{
+  "task_id": "database-orm-query",
+  "title": "SQLAlchemy N+1 Query Optimization",
+  "category": "database",
+  "difficulty": "medium",
+  "estimated_steps": 20,
+  "target_files": [
+    "src/db/queries.py"
+  ],
+  "test_script_path": "tests/test_task.py"
+}

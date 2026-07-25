@@ -1,0 +1,26 @@
+[
+  {
+    "chunk_id": "c-1",
+    "file_path": "src/auth/jwt_verifier.py",
+    "vector_score": 0.5,
+    "graph_score": 0.75,
+    "ast_score": 0.0,
+    "recency_score": 1.0,
+    "final_score": 0.9,
+    "retrieval_source": "hybrid_blended",
+    "selection_rationale": "Selected for handoff context via dense vector cosine similarity (0.50), active file modification recency, topological import graph proximity.",
+    "content_snippet": "def verify_jwt_rs256(): pass"
+  },
+  {
+    "chunk_id": "c-2",
+    "file_path": "src/config/settings.py",
+    "vector_score": 0.5,
+    "graph_score": 0.2,
+    "ast_score": 0.0,
+    "recency_score": 0.2,
+    "final_score": 0.66,
+    "retrieval_source": "hybrid_blended",
+    "selection_rationale": "Selected for handoff context via dense vector cosine similarity (0.50).",
+    "content_snippet": "class Settings: pass"
+  }
+]

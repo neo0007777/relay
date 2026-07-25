@@ -1,0 +1,8 @@
+category: refactoring
+difficulty: medium
+estimated_steps: 20
+target_files:
+- src/refactor/repo.py
+task_id: refactoring-dependency-inversion
+test_script_path: tests/test_task.py
+title: Apply Dependency Inversion Principle

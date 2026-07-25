@@ -1,0 +1,11 @@
+{
+  "task_id": "api-webhook-verifier",
+  "title": "HMAC SHA-256 Webhook Verifier",
+  "category": "api",
+  "difficulty": "medium",
+  "estimated_steps": 20,
+  "target_files": [
+    "src/api/webhook.py"
+  ],
+  "test_script_path": "tests/test_task.py"
+}

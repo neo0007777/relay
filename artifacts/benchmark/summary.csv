@@ -1,0 +1,15 @@
+run_id,scenario,task_id,iteration,task_completed,tests_passed,tests_total,completion_rate,continuity_score,retrieval_precision,retrieval_recall,dead_end_retries,total_tokens_consumed,handoff_latency_seconds
+run-s2-6beb6a94,relay_full,api-graphql-resolver,1,False,0,1,0.0,0.0,0.0,0.0,0,105024,0.0
+run-s2-6beb6a94,naive_truncation,api-graphql-resolver,1,False,0,1,0.0,0.0,0.0,0.0,0,105017,0.0
+run-s2-6beb6a94,no_limit_baseline,api-graphql-resolver,1,False,0,1,0.0,0.0,0.0,0.0,0,5064,0.0
+run-s2-6beb6a94,no_why_not,api-graphql-resolver,1,False,0,1,0.0,0.0,0.0,0.0,0,105024,0.0
+run-s2-6beb6a94,no_ast,api-graphql-resolver,1,False,0,1,0.0,0.0,0.0,0.0,0,105024,0.0
+run-s2-6beb6a94,no_graph,api-graphql-resolver,1,False,0,1,0.0,0.0,0.0,0.0,0,105024,0.0
+run-s2-6beb6a94,vector_only,api-graphql-resolver,1,False,0,1,0.0,0.0,0.0,0.0,0,105024,0.0
+run-s2-6beb6a94,relay_full,api-rate-limiter,1,False,0,1,0.0,0.0,0.0,0.0,0,105024,0.0
+run-s2-6beb6a94,naive_truncation,api-rate-limiter,1,False,0,1,0.0,0.0,0.0,0.0,0,105017,0.0
+run-s2-6beb6a94,no_limit_baseline,api-rate-limiter,1,False,0,1,0.0,0.0,0.0,0.0,0,5064,0.0
+run-s2-6beb6a94,no_why_not,api-rate-limiter,1,False,0,1,0.0,0.0,0.0,0.0,0,105024,0.0
+run-s2-6beb6a94,no_ast,api-rate-limiter,1,False,0,1,0.0,0.0,0.0,0.0,0,105024,0.0
+run-s2-6beb6a94,no_graph,api-rate-limiter,1,False,0,1,0.0,0.0,0.0,0.0,0,105024,0.0
+run-s2-6beb6a94,vector_only,api-rate-limiter,1,False,0,1,0.0,0.0,0.0,0.0,0,105024,0.0

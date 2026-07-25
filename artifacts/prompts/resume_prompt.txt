@@ -1,0 +1,6 @@
+=================== RELAY CONTEXT HANDOFF ===================
+PRIMARY TASK GOAL: Refactor JWT verification flow
+CHECKPOINT ID: chk-evidence-sample
+Decision: Use RS256
+❌ DEAD END: HMAC secret
+==============================================================

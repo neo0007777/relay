@@ -1,0 +1,34 @@
+{
+  "run_id": "run-s2-f4bdc9aa",
+  "timestamp": "2026-07-25 14:20:37.365113",
+  "checkpoint_metrics": {
+    "relay_full": {
+      "avg_continuity_score": 0.0,
+      "avg_handoff_latency": 0.0
+    },
+    "naive_truncation": {
+      "avg_continuity_score": 0.0,
+      "avg_handoff_latency": 0.0
+    },
+    "no_limit_baseline": {
+      "avg_continuity_score": 0.0,
+      "avg_handoff_latency": 0.0
+    },
+    "no_why_not": {
+      "avg_continuity_score": 0.0,
+      "avg_handoff_latency": 0.0
+    },
+    "no_ast": {
+      "avg_continuity_score": 0.0,
+      "avg_handoff_latency": 0.0
+    },
+    "no_graph": {
+      "avg_continuity_score": 0.0,
+      "avg_handoff_latency": 0.0
+    },
+    "vector_only": {
+      "avg_continuity_score": 0.0,
+      "avg_handoff_latency": 0.0
+    }
+  }
+}

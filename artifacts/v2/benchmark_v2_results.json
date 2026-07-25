@@ -1,0 +1,228 @@
+{
+  "metadata": {
+    "tasks_evaluated": 1,
+    "iterations_per_task": 1,
+    "total_runs": 3,
+    "timestamp": "2026-07-25T23:57:41.341714"
+  },
+  "statistical_summary": {
+    "relay_full": {
+      "completion_rate": {
+        "mean": 1.0,
+        "median": 1.0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "dead_end_retries": {
+        "mean": 0.0,
+        "median": 0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "repeated_work_count": {
+        "mean": 0.0,
+        "median": 0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "retrieval_precision": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "retrieval_recall": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "handoff_latency_seconds": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "total_duration_seconds": {
+        "mean": 3.2077,
+        "median": 3.2077,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      }
+    },
+    "naive_truncation": {
+      "completion_rate": {
+        "mean": 1.0,
+        "median": 1.0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "dead_end_retries": {
+        "mean": 0.0,
+        "median": 0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "repeated_work_count": {
+        "mean": 0.0,
+        "median": 0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "retrieval_precision": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "retrieval_recall": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "handoff_latency_seconds": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "total_duration_seconds": {
+        "mean": 1.7327,
+        "median": 1.7327,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      }
+    },
+    "no_limit_baseline": {
+      "completion_rate": {
+        "mean": 1.0,
+        "median": 1.0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "dead_end_retries": {
+        "mean": 0.0,
+        "median": 0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "repeated_work_count": {
+        "mean": 0.0,
+        "median": 0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "retrieval_precision": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "retrieval_recall": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "handoff_latency_seconds": {
+        "mean": 0.0,
+        "median": 0.0,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      },
+      "total_duration_seconds": {
+        "mean": 3.0527,
+        "median": 3.0527,
+        "std_dev": 0.0,
+        "ci95": 0.0,
+        "n": 1
+      }
+    }
+  },
+  "hypothesis_testing": {
+    "p_value_relay_vs_naive_completion": 1.0,
+    "is_significant_vs_naive": false,
+    "p_value_relay_vs_nolimit_completion": 1.0,
+    "p_value_dead_end_retries": 1.0
+  },
+  "all_runs": [
+    {
+      "task_id": "api-graphql-resolver",
+      "title": "GraphQL Resolver Field Fix",
+      "scenario": "relay_full",
+      "iteration": 1,
+      "task_completed": true,
+      "tests_passed": 1,
+      "tests_total": 1,
+      "completion_rate": 1.0,
+      "repeated_work_count": 0,
+      "dead_end_retries": 0,
+      "retrieval_precision": 0.0,
+      "retrieval_recall": 0.0,
+      "handoff_count": 0,
+      "handoff_latency_seconds": 0.0,
+      "total_duration_seconds": 3.2077,
+      "tokens_consumed": 104988,
+      "timestamp": "2026-07-25T23:57:36.550031"
+    },
+    {
+      "task_id": "api-graphql-resolver",
+      "title": "GraphQL Resolver Field Fix",
+      "scenario": "naive_truncation",
+      "iteration": 1,
+      "task_completed": true,
+      "tests_passed": 1,
+      "tests_total": 1,
+      "completion_rate": 1.0,
+      "repeated_work_count": 0,
+      "dead_end_retries": 0,
+      "retrieval_precision": 0.0,
+      "retrieval_recall": 0.0,
+      "handoff_count": 0,
+      "handoff_latency_seconds": 0.0,
+      "total_duration_seconds": 1.7327,
+      "tokens_consumed": 104974,
+      "timestamp": "2026-07-25T23:57:38.285242"
+    },
+    {
+      "task_id": "api-graphql-resolver",
+      "title": "GraphQL Resolver Field Fix",
+      "scenario": "no_limit_baseline",
+      "iteration": 1,
+      "task_completed": true,
+      "tests_passed": 1,
+      "tests_total": 1,
+      "completion_rate": 1.0,
+      "repeated_work_count": 0,
+      "dead_end_retries": 0,
+      "retrieval_precision": 0.0,
+      "retrieval_recall": 0.0,
+      "handoff_count": 0,
+      "handoff_latency_seconds": 0.0,
+      "total_duration_seconds": 3.0527,
+      "tokens_consumed": 5028,
+      "timestamp": "2026-07-25T23:57:41.339726"
+    }
+  ]
+}

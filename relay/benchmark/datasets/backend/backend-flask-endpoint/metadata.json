@@ -1,0 +1,11 @@
+{
+  "task_id": "backend-flask-endpoint",
+  "title": "Flask CORS Response Header Fix",
+  "category": "backend",
+  "difficulty": "medium",
+  "estimated_steps": 20,
+  "target_files": [
+    "src/backend/flask_app.py"
+  ],
+  "test_script_path": "tests/test_task.py"
+}

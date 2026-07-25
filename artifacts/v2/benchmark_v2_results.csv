@@ -1,0 +1,4 @@
+task_id,title,scenario,iteration,task_completed,tests_passed,tests_total,completion_rate,repeated_work_count,dead_end_retries,retrieval_precision,retrieval_recall,handoff_count,handoff_latency_seconds,total_duration_seconds,tokens_consumed,timestamp
+api-graphql-resolver,GraphQL Resolver Field Fix,relay_full,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.2077,104988,2026-07-25T23:57:36.550031
+api-graphql-resolver,GraphQL Resolver Field Fix,naive_truncation,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,1.7327,104974,2026-07-25T23:57:38.285242
+api-graphql-resolver,GraphQL Resolver Field Fix,no_limit_baseline,1,True,1,1,1.0,0,0,0.0,0.0,0,0.0,3.0527,5028,2026-07-25T23:57:41.339726

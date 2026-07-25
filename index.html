@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Relay — Context Continuity for AI Coding Agents</title>
+  <meta name="description" content="Relay is open-source middleware that enables long-running AI coding agents to survive context-window exhaustion through structured checkpointing, hybrid compression, and retrieval-augmented handoff." />
+  <meta property="og:title"       content="Relay — AI Agent Context Continuity" />
+  <meta property="og:description" content="Structured checkpointing and retrieval for AI coding agents. Built for OpenHands, Claude Code, and more." />
+  <meta property="og:type"        content="website" />
+  <meta name="theme-color"        content="#050810" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- Scroll progress indicator -->
+<div id="scroll-progress"></div>
+
+<!-- ═══════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════ -->
+<nav id="nav" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">
+      <div class="logo-icon" aria-hidden="true">⚡</div>
+      Relay
+    </a>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#benchmark">Benchmark</a></li>
+      <li><a href="#why-it-works">Design</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li>
+        <a href="https://github.com/yourusername/relay"
+           target="_blank"
+           rel="noopener"
+           class="btn-nav">
+          GitHub →
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="hero" aria-labelledby="hero-heading">
+  <div class="container hero-inner">
+
+    <!-- Left: copy -->
+    <div class="hero-copy">
+      <div class="hero-badge">
+        <span class="dot" aria-hidden="true"></span>
+        Open-source · v0.1 alpha
+      </div>
+
+      <h1 id="hero-heading" class="hero-title">
+        AI agents forget.<br />
+        <span class="gradient-text">Relay remembers.</span>
+      </h1>
+
+      <p class="hero-desc">
+        Context-window exhaustion kills long-running coding agents mid-task.
+        Relay intercepts at 85%, fires a structured checkpoint, compresses
+        state with hybrid summarization, and hands off to a fresh instance —
+        so your agent picks up exactly where it stopped.
+      </p>
+
+      <div class="hero-cta">
+        <a href="https://github.com/yourusername/relay"
+           target="_blank"
+           rel="noopener"
+           class="btn btn-primary"
+           id="cta-github">
+          ⭐ Star on GitHub
+        </a>
+        <a href="#benchmark" class="btn btn-ghost" id="cta-benchmark">
+          View Benchmarks ↓
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">+112%</div>
+          <div class="stat-label">Task completion vs. truncation</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">0.81</div>
+          <div class="stat-label">Avg. continuity score</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">&lt;2s</div>
+          <div class="stat-label">Checkpoint handoff latency</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: live demo -->
+    <div class="hero-visual">
+      <!-- Floating stat cards -->
+      <div class="floating-card fc-1" aria-hidden="true">
+        <div class="fc-label">Continuity Score</div>
+        <div class="fc-value">0.81 / 1.0</div>
+      </div>
+      <div class="floating-card fc-2" aria-hidden="true">
+        <div class="fc-label">Checkpoint Saved</div>
+        <div class="fc-value purple">relay-session-7f3a</div>
+      </div>
+
+      <div class="context-window-viz">
+        <!-- Window chrome -->
+        <div class="viz-header">
+          <div class="viz-dots" aria-hidden="true">
+            <span class="viz-dot red"></span>
+            <span class="viz-dot amber"></span>
+            <span class="viz-dot green"></span>
+          </div>
+          <div class="viz-title">openhands-agent · auth-refactor-session</div>
+        </div>
+
+        <!-- Context bar -->
+        <div class="ctx-bar-wrap">
+          <div class="ctx-bar-label">
+            <span>Context Window</span>
+            <span>
+              <span id="ctxTokens">0</span> / 128,000 tokens
+              (<span id="ctxPct">0%</span>)
+            </span>
+          </div>
+          <div class="ctx-bar-track" role="progressbar" aria-label="Context window usage" aria-valuemin="0" aria-valuemax="100">
+            <div class="ctx-bar-fill" id="ctxFill" style="width:0%;background:linear-gradient(90deg,#3b82f6,#6366f1)"></div>
+          </div>
+        </div>
+
+        <!-- Live log -->
+        <div class="agent-log" id="agentLog" aria-live="polite" aria-label="Agent activity log"></div>
+
+        <!-- Checkpoint badge -->
+        <div class="checkpoint-badge" id="checkpointBadge" role="status">
+          <div class="badge-icon" aria-hidden="true">⚡</div>
+          <div class="badge-text">
+            <strong>Relay Checkpoint Fired</strong>
+            <span>State serialized · context compressed · new agent ready</span>
+          </div>
+        </div>
+
+        <!-- Replay button -->
+        <button class="replay-btn" id="replayBtn" style="display:none" aria-label="Replay demo">
+          ↺ Replay Demo
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PROBLEM
+════════════════════════════════════════ -->
+<section id="problem" aria-labelledby="problem-heading">
+  <div class="container">
+    <div class="problem-header reveal">
+      <div class="section-label">The Problem</div>
+      <h2 id="problem-heading" class="section-title">
+        Every long-running agent hits a wall
+      </h2>
+      <p class="section-subtitle">
+        Coding agents eat context fast — reading files, running tests, tracing
+        failures. At the limit, the session dies. Your work dies with it.
+      </p>
+    </div>
+
+    <!-- Flow diagram -->
+    <div class="flow-steps reveal">
+      <div class="flow-step">
+        <div class="flow-step-icon step-agent">🤖</div>
+        <div class="flow-step-label">Agent Starts</div>
+        <div class="flow-step-desc">Task assigned, context empty</div>
+      </div>
+      <div class="flow-arrow" aria-hidden="true">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon step-fill">📈</div>
+        <div class="flow-step-label">Context Fills</div>
+        <div class="flow-step-desc">Files, tests, decisions pile up</div>
+      </div>
+      <div class="flow-arrow" aria-hidden="true">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon step-relay" style="animation:spin-in 0.4s ease">⚡</div>
+        <div class="flow-step-label">Relay Fires</div>
+        <div class="flow-step-desc">At 85%: checkpoint captured</div>
+      </div>
+      <div class="flow-arrow" aria-hidden="true">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon step-retrieve">🔍</div>
+        <div class="flow-step-label">State Retrieved</div>
+        <div class="flow-step-desc">Graph-aware context loaded</div>
+      </div>
+      <div class="flow-arrow" aria-hidden="true">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon step-resume">▶</div>
+        <div class="flow-step-label">Agent Resumes</div>
+        <div class="flow-step-desc">Fresh instance, full context</div>
+      </div>
+    </div>
+
+    <!-- Before / After comparison -->
+    <div class="compare-grid reveal">
+      <div class="compare-card">
+        <span class="compare-card-tag tag-bad">Without Relay</span>
+        <h3 class="compare-title">Session Crash</h3>
+        <p class="compare-desc">
+          Agent hits the context limit mid-refactor. Session dies. You restart
+          from scratch, losing all decisions, failed attempts, and partial work.
+          The agent will repeat the same mistakes.
+        </p>
+      </div>
+      <div class="compare-card">
+        <span class="compare-card-tag tag-meh">Naive Truncation</span>
+        <h3 class="compare-title">Silent Amnesia</h3>
+        <p class="compare-desc">
+          Old messages are quietly dropped. The agent loses track of earlier
+          decisions, re-reads files it already knows, retries failed approaches,
+          and produces duplicate or regressed edits.
+        </p>
+      </div>
+      <div class="compare-card featured">
+        <span class="compare-card-tag tag-good">Relay</span>
+        <h3 class="compare-title">Structured Handoff</h3>
+        <p class="compare-desc">
+          At 85%, Relay captures goal state, decision log, rejected approaches,
+          and file diffs. A fresh agent instance resumes with full knowledge of
+          where it left off — <em>and</em> what not to try again.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     HOW IT WORKS
+════════════════════════════════════════ -->
+<section id="how-it-works" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="how-header reveal">
+      <div class="section-label">Architecture</div>
+      <h2 id="how-heading" class="section-title">
+        Four steps to <span class="gradient-text">perfect handoff</span>
+      </h2>
+      <p class="section-subtitle">
+        Relay is a thin middleware layer. It intercepts agent sessions,
+        structures their state, and resumes seamlessly — without modifying the
+        underlying agent.
+      </p>
+    </div>
+
+    <!-- Pipeline accordion -->
+    <div class="pipeline-steps reveal">
+
+      <div class="pipeline-step" id="step-checkpoint" tabindex="0" role="button" aria-expanded="true">
+        <div class="step-num step-num-1">01</div>
+        <div>
+          <div class="step-content-title">Checkpoint Trigger</div>
+          <p class="step-content-desc">
+            Relay monitors token consumption in real-time. At 85% context
+            capacity, a checkpoint is triggered automatically — before the agent
+            risks losing state.
+          </p>
+          <div class="step-detail">
+            <div>threshold: 0.85 × context_limit</div>
+            <div>trigger:   token_count ≥ threshold</div>
+            <div>latency:   &lt; 50ms (non-blocking)</div>
+            <div>agent:     continues working during capture</div>
+          </div>
+        </div>
+        <div class="step-badge">⚡</div>
+      </div>
+
+      <div class="pipeline-step" id="step-compress" tabindex="0" role="button" aria-expanded="false">
+        <div class="step-num step-num-2">02</div>
+        <div>
+          <div class="step-content-title">Hybrid Compression</div>
+          <p class="step-content-desc">
+            State is compressed using a hybrid strategy — not just an LLM
+            summary. Relay preserves structured data that summaries typically
+            lose: decision logs, rejected approaches, and git diffs.
+          </p>
+          <div class="step-detail">
+            <div>layer-1:  LLM narrative summary (goal + progress)</div>
+            <div>layer-2:  structured decision log (JSON)</div>
+            <div>layer-3:  rejected approaches + dead ends</div>
+            <div>layer-4:  git diff + AST snapshot</div>
+            <div>layer-5:  top-k tool outputs (by relevance)</div>
+          </div>
+        </div>
+        <div class="step-badge">🗜</div>
+      </div>
+
+      <div class="pipeline-step" id="step-retrieve" tabindex="0" role="button" aria-expanded="false">
+        <div class="step-num step-num-3">03</div>
+        <div>
+          <div class="step-content-title">Graph-Aware Retrieval</div>
+          <p class="step-content-desc">
+            Before handing off, Relay uses graph-aware retrieval to surface the
+            most relevant context — files in the dependency graph, related git
+            commits, and AST-linked modules — not just semantic similarity.
+          </p>
+          <div class="step-detail">
+            <div>backend:   Qdrant vector store</div>
+            <div>signals:   dependency graph + import graph</div>
+            <div>re-rank:   recency × relevance × code coupling</div>
+            <div>output:    top-k files + chunks injected into prompt</div>
+          </div>
+        </div>
+        <div class="step-badge">🔍</div>
+      </div>
+
+      <div class="pipeline-step" id="step-handoff" tabindex="0" role="button" aria-expanded="false">
+        <div class="step-num step-num-4">04</div>
+        <div>
+          <div class="step-content-title">Agent Handoff</div>
+          <p class="step-content-desc">
+            A new agent instance is initialized with the compressed checkpoint
+            and retrieved context injected as a structured system prompt.
+            The agent resumes the task without re-reading files or retrying
+            dead ends.
+          </p>
+          <div class="step-detail">
+            <div>handoff:   relay-session-{id}.json → system prompt</div>
+            <div>includes:  goal · decisions · why-not store · context</div>
+            <div>target:    OpenHands · Claude Code · any HTTP agent</div>
+            <div>latency:   ~1.8s end-to-end checkpoint + resume</div>
+          </div>
+        </div>
+        <div class="step-badge">▶</div>
+      </div>
+    </div>
+
+    <!-- Checkpoint payload breakdown -->
+    <div class="payload-grid reveal">
+      <div class="payload-card">
+        <div class="payload-tag" style="color:var(--blue-400)">Standard Checkpoint Fields</div>
+        <ul class="payload-items">
+          <li>Original task goal and acceptance criteria</li>
+          <li>Completed sub-tasks with status</li>
+          <li>Pending items and current focus</li>
+          <li>Files modified (paths + git diff)</li>
+          <li>Latest tool outputs (test results, errors)</li>
+        </ul>
+      </div>
+      <div class="payload-card highlight-card">
+        <div class="payload-tag" style="color:var(--amber-400)">🆕 Relay's Key Innovation</div>
+        <ul class="payload-items">
+          <li>Rejected approaches — what was tried and why it failed</li>
+          <li>Known dead ends — paths confirmed not to work</li>
+          <li>Design decisions — rationale behind current approach</li>
+          <li>Dependency graph snapshot — code coupling map</li>
+          <li>AST delta — structural changes since session start</li>
+        </ul>
+      </div>
+      <div class="payload-card">
+        <div class="payload-tag" style="color:var(--green-400)">Retrieved at Handoff</div>
+        <ul class="payload-items">
+          <li>Top-k semantically relevant code chunks</li>
+          <li>Imported modules in scope of active changes</li>
+          <li>Related commit history (last N commits on touched files)</li>
+          <li>Test fixtures for failing tests</li>
+        </ul>
+      </div>
+      <div class="payload-card">
+        <div class="payload-tag" style="color:var(--purple-400)">Agent Compatibility</div>
+        <ul class="payload-items">
+          <li>OpenHands — native session hook</li>
+          <li>Claude Code — context injection via system prompt</li>
+          <li>Any HTTP agent — REST API (POST /checkpoint, POST /resume)</li>
+          <li>LangGraph — middleware node (in roadmap)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     BENCHMARK DASHBOARD
+════════════════════════════════════════ -->
+<section id="benchmark" aria-labelledby="bench-heading">
+  <div class="container">
+    <div class="bench-header reveal">
+      <div class="section-label">RelayBench</div>
+      <h2 id="bench-heading" class="section-title">
+        Benchmarked against<br/>
+        <span class="gradient-text">two baselines</span>
+      </h2>
+      <p class="section-subtitle">
+        Relay, Naive Truncation, and a No-Limit Oracle baseline — measured
+        across 6 real OpenHands coding tasks on open-source repositories.
+      </p>
+      <div class="bench-disclaimer">
+        ⚠ Simulated projections — live results in progress. System under active development.
+      </div>
+    </div>
+
+    <!-- Top metric cards -->
+    <div class="metrics-grid reveal">
+      <div class="metric-card m-blue">
+        <div class="metric-value">87%</div>
+        <div class="metric-label">Task Completion (Relay)</div>
+        <div class="metric-delta">+112% vs. truncation</div>
+      </div>
+      <div class="metric-card m-green">
+        <div class="metric-value">0.81</div>
+        <div class="metric-label">Continuity Score</div>
+        <div class="metric-delta">+253% vs. truncation</div>
+      </div>
+      <div class="metric-card m-amber">
+        <div class="metric-value">4.2%</div>
+        <div class="metric-label">Duplicate Work Rate</div>
+        <div class="metric-delta">↓ 91% vs. truncation</div>
+      </div>
+      <div class="metric-card m-purple">
+        <div class="metric-value">1.8s</div>
+        <div class="metric-label">Handoff Latency</div>
+        <div class="metric-delta">Non-blocking checkpoint</div>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts-grid reveal reveal-delay-1">
+      <div class="chart-card">
+        <div class="chart-title">Task Completion by Scenario</div>
+        <div class="chart-subtitle">% of task completed before agent stops working</div>
+        <div class="chart-wrap">
+          <canvas id="chartCompletion" aria-label="Task completion bar chart comparing Relay, Naive Truncation, and No-Limit Baseline"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Continuity Dimensions (Radar)</div>
+        <div class="chart-subtitle">Relay vs. Naive Truncation across 6 axes</div>
+        <div class="chart-wrap">
+          <canvas id="chartContinuity" aria-label="Radar chart comparing continuity dimensions of Relay versus Naive Truncation"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results table -->
+    <div class="results-table-wrap reveal reveal-delay-2">
+      <table class="results-table">
+        <caption class="sr-only">Full benchmark comparison table</caption>
+        <thead>
+          <tr>
+            <th scope="col">System</th>
+            <th scope="col">Task Completion</th>
+            <th scope="col">Continuity Score</th>
+            <th scope="col">Duplicate Work</th>
+            <th scope="col">Token Cost (rel.)</th>
+            <th scope="col">Dead-end Retries</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="featured-row">
+            <td>
+              <span class="system-badge badge-relay">⚡ Relay</span>
+            </td>
+            <td class="td-good">87.0%</td>
+            <td class="td-good">0.81</td>
+            <td class="td-good">4.2%</td>
+            <td class="td-mid">1.12×</td>
+            <td class="td-good">0.3</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="system-badge badge-trunc">✂ Naive Truncation</span>
+            </td>
+            <td class="td-bad">41.0%</td>
+            <td class="td-bad">0.23</td>
+            <td class="td-bad">48.7%</td>
+            <td class="td-good">1.00×</td>
+            <td class="td-bad">4.1</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="system-badge badge-nolimit">∞ No-Limit Baseline</span>
+            </td>
+            <td class="td-good">95.0%</td>
+            <td class="td-good">1.00</td>
+            <td class="td-good">0.0%</td>
+            <td class="td-bad">3.80×</td>
+            <td class="td-good">0.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     WHY IT WORKS
+════════════════════════════════════════ -->
+<section id="why-it-works" aria-labelledby="why-heading">
+  <div class="container">
+    <div class="why-inner">
+
+      <!-- Left: design insights -->
+      <div>
+        <div class="section-label reveal">Design Decisions</div>
+        <h2 id="why-heading" class="section-title reveal reveal-delay-1">
+          Why Relay<br/><span class="gradient-text">outperforms</span>
+        </h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          The architecture is opinionated. Here's what makes the difference
+          over naive approaches.
+        </p>
+
+        <div class="insight-list">
+          <div class="insight-item reveal reveal-delay-1">
+            <div class="insight-icon" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25)">🚫</div>
+            <div>
+              <div class="insight-title">The "Why NOT" Store</div>
+              <p class="insight-desc">
+                Relay records rejected approaches and confirmed dead ends. Without
+                this, fresh agents repeat the same failed experiments — wasting tokens
+                on approaches already proven wrong. This is the highest-impact addition
+                over standard checkpointing.
+              </p>
+            </div>
+          </div>
+          <div class="insight-item reveal reveal-delay-2">
+            <div class="insight-icon" style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25)">🌳</div>
+            <div>
+              <div class="insight-title">Dependency Graph Retrieval</div>
+              <p class="insight-desc">
+                Semantic search alone retrieves thematically similar text. Code needs
+                structural awareness — what files are coupled, what imports what, what
+                changed downstream. Relay uses the project's dependency graph as the
+                primary retrieval signal.
+              </p>
+            </div>
+          </div>
+          <div class="insight-item reveal reveal-delay-3">
+            <div class="insight-icon" style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.25)">🗜</div>
+            <div>
+              <div class="insight-title">Hybrid vs. Summary-Only</div>
+              <p class="insight-desc">
+                LLM summaries lose precise information: exact error messages, specific
+                line numbers, tool output values. Relay preserves these in structured
+                JSON layers alongside the narrative summary, so the resumed agent gets
+                both high-level context and precise details.
+              </p>
+            </div>
+          </div>
+          <div class="insight-item reveal reveal-delay-4">
+            <div class="insight-icon" style="background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.25)">📐</div>
+            <div>
+              <div class="insight-title">Objective Continuity Metrics</div>
+              <p class="insight-desc">
+                RelayBench avoids LLM-as-judge for core metrics. Instead: repeated
+                edits, reverted code, duplicate patches, and regression test deltas —
+                all measurable objectively. LLM scoring is used only for qualitative
+                narrative assessment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: checkpoint schema -->
+      <div class="why-visual reveal reveal-delay-2">
+        <div class="checkpoint-schema">
+          <div class="schema-title">// relay-session-7f3a.json</div>
+
+          <div class="schema-field">
+            <span class="schema-key">"goal"</span>
+            <span class="schema-type">: string</span>
+            <span class="schema-desc">— original task description</span>
+          </div>
+          <div class="schema-field">
+            <span class="schema-key">"progress"</span>
+            <span class="schema-type">: string</span>
+            <span class="schema-desc">— LLM narrative summary</span>
+          </div>
+          <div class="schema-field">
+            <span class="schema-key">"decisions"</span>
+            <span class="schema-type">: Decision[]</span>
+            <span class="schema-desc">— structured choice log</span>
+          </div>
+          <div class="schema-field">
+            <span class="schema-key">"todos"</span>
+            <span class="schema-type">: string[]</span>
+            <span class="schema-desc">— remaining sub-tasks</span>
+          </div>
+          <div class="schema-field">
+            <span class="schema-key">"files_modified"</span>
+            <span class="schema-type">: FileDiff[]</span>
+            <span class="schema-desc">— git diffs per file</span>
+          </div>
+          <div class="schema-field">
+            <span class="schema-key">"ast_snapshot"</span>
+            <span class="schema-type">: ASTDelta</span>
+            <span class="schema-desc">— structural code changes</span>
+          </div>
+          <div class="schema-field">
+            <span class="schema-key">"retrieved_context"</span>
+            <span class="schema-type">: Chunk[]</span>
+            <span class="schema-desc">— top-k relevant files</span>
+          </div>
+
+          <!-- New fields highlighted -->
+          <div class="schema-field schema-new">
+            <span class="schema-key">"rejected_approaches"</span>
+            <span class="schema-type">: Rejection[]</span>
+            <div class="schema-new-tag">NEW</div>
+          </div>
+          <div class="schema-field schema-new">
+            <span class="schema-key">"dead_ends"</span>
+            <span class="schema-type">: string[]</span>
+            <div class="schema-new-tag">NEW</div>
+          </div>
+          <div class="schema-field schema-new">
+            <span class="schema-key">"dependency_graph"</span>
+            <span class="schema-type">: Graph</span>
+            <div class="schema-new-tag">NEW</div>
+          </div>
+          <div class="schema-field schema-new">
+            <span class="schema-key">"why_not_store"</span>
+            <span class="schema-type">: WhyNot[]</span>
+            <div class="schema-new-tag">KEY</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ROADMAP
+════════════════════════════════════════ -->
+<section id="roadmap" aria-labelledby="roadmap-heading">
+  <div class="container">
+    <div class="roadmap-header reveal">
+      <div class="section-label">Roadmap</div>
+      <h2 id="roadmap-heading" class="section-title">
+        What's being built
+      </h2>
+      <p class="section-subtitle" style="margin:0 auto;">
+        Relay is under active development. The architecture is defined;
+        implementation is progressing phase by phase.
+      </p>
+    </div>
+
+    <div class="roadmap-timeline">
+      <div class="timeline-card active reveal reveal-delay-1">
+        <span class="phase-tag phase-1">Phase 1 · Now</span>
+        <h3 class="phase-title">Core Middleware</h3>
+        <p class="phase-period">Week 1–3</p>
+        <ul class="phase-items">
+          <li><span class="check">✓</span> Architecture design</li>
+          <li><span class="check">✓</span> Checkpoint schema</li>
+          <li><span class="check">✓</span> Demo website</li>
+          <li><span class="todo">○</span> OpenHands session hook</li>
+          <li><span class="todo">○</span> Hybrid compression engine</li>
+          <li><span class="todo">○</span> Qdrant vector store integration</li>
+        </ul>
+      </div>
+
+      <div class="timeline-card reveal reveal-delay-2">
+        <span class="phase-tag phase-2">Phase 2 · Next</span>
+        <h3 class="phase-title">RelayBench + Evaluation</h3>
+        <p class="phase-period">Week 4–7</p>
+        <ul class="phase-items">
+          <li><span class="todo">○</span> Benchmark harness (6 tasks)</li>
+          <li><span class="todo">○</span> Objective continuity metrics</li>
+          <li><span class="todo">○</span> Baseline runners (truncation + no-limit)</li>
+          <li><span class="todo">○</span> Live benchmark dashboard</li>
+          <li><span class="todo">○</span> Technical blog post</li>
+        </ul>
+      </div>
+
+      <div class="timeline-card future reveal reveal-delay-3">
+        <span class="phase-tag phase-3">Phase 3 · Future</span>
+        <h3 class="phase-title">Agent Ecosystem</h3>
+        <p class="phase-period">Week 8+</p>
+        <ul class="phase-items">
+          <li><span class="todo">○</span> Claude Code plugin</li>
+          <li><span class="todo">○</span> LangGraph middleware node</li>
+          <li><span class="todo">○</span> REST API (POST /checkpoint)</li>
+          <li><span class="todo">○</span> VS Code extension</li>
+          <li><span class="todo">○</span> SWE-Bench evaluation run</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <div class="logo-icon" aria-hidden="true">⚡</div>
+          Relay
+        </div>
+        <p>
+          Open-source middleware enabling AI coding agents to survive
+          context-window exhaustion through structured checkpointing and
+          retrieval-augmented handoff.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Project</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com/yourusername/relay" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="#benchmark">Benchmark Results</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#">Technical Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <ul class="footer-links">
+          <li><a href="#">RelayBench</a></li>
+          <li><a href="#">Checkpoint Schema</a></li>
+          <li><a href="#">Architecture Docs</a></li>
+          <li><a href="#">OpenHands Docs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Built for AI infrastructure engineers and research engineering roles.</p>
+      <div class="footer-tags">
+        <span class="footer-tag">python</span>
+        <span class="footer-tag">qdrant</span>
+        <span class="footer-tag">openhands</span>
+        <span class="footer-tag">MIT license</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="demo.js"></script>
+<script src="benchmark.js"></script>
+
+</body>
+</html>

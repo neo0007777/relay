@@ -1,0 +1,11 @@
+{
+  "task_id": "frontend-react-state",
+  "title": "React State Synchronization Bug",
+  "category": "frontend",
+  "difficulty": "medium",
+  "estimated_steps": 20,
+  "target_files": [
+    "src/frontend/state.py"
+  ],
+  "test_script_path": "tests/test_task.py"
+}

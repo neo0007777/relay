@@ -1,0 +1,30 @@
+{
+  "task_id": "debugging-memory-leak",
+  "scenario": "relay_full",
+  "iteration": 3,
+  "trace_steps": 4,
+  "result": {
+    "task_id": "debugging-memory-leak",
+    "title": "Fix Background Queue Memory Leak",
+    "scenario": "relay_full",
+    "iteration": 3,
+    "timestamp": "2026-07-25T23:49:13.253167",
+    "task_completed": true,
+    "tests_passed": 1,
+    "tests_total": 1,
+    "completion_rate": 1.0,
+    "continuity_score": 0.5,
+    "retrieval_precision": 0.0,
+    "retrieval_recall": 0.0,
+    "repeated_work_count": 0,
+    "dead_end_retries": 0,
+    "code_regression_count": 0,
+    "handoff_count": 1,
+    "handoff_latency_seconds": 0.003,
+    "total_duration_seconds": 0.452,
+    "total_tokens_consumed": 111426,
+    "retrieved_chunk_count": 5,
+    "status": "ok",
+    "error": null
+  }
+}
