@@ -164,7 +164,7 @@ Relay serializes task state into an atomic, SHA-256 verified `KnowledgeCheckpoin
 ```
 
 ### 3. The "Why-NOT" Store (Dead-End Memory)
-The most impactful technical innovation in Relay is the explicit cataloging of **rejected hypotheses and dead ends**. When a fresh agent resumes after handoff, the prompt builder injects explicit negative constraints:
+One of Relay's primary design ideas is the **"Why-NOT" store**, which explicitly records rejected approaches, failed hypotheses, and runtime tracebacks. When a fresh agent resumes execution after handoff, the prompt builder injects negative constraints so the agent avoids repeating known dead ends:
 
 > ❌ **DO NOT RETRY PREVIOUSLY FAILED APPROACHES:**
 > - `Mutex lock around refresh queue`: Failed due to `DeadlockError: lock timeout after 5.0s`.
@@ -178,7 +178,7 @@ $$\text{Score} = 0.40 \cdot S_{\text{vector}} + 0.30 \cdot S_{\text{graph}} + 0.
 
 ## 📊 RelayBench Evaluation Results (Benchmark v2)
 
-RelayBench v2 is an autonomous, live agent evaluation suite spanning **288 independent runs** across 32 tasks and 3 experimental conditions with **ZERO solution injection**:
+RelayBench v2 is an autonomous, live agent evaluation suite spanning **288 independent runs** across 32 tasks and 3 experimental conditions with **zero expected solution injection**:
 
 | Strategy / Scenario | Completion Rate | 95% Confidence Interval | Dead-End Retries (mean) | Handoff Latency (ms) | Welch's $p$-value |
 |:---|:---:|:---:|:---:|:---:|:---:|
@@ -186,7 +186,26 @@ RelayBench v2 is an autonomous, live agent evaluation suite spanning **288 indep
 | **Naive Truncation (Baseline)** | 92.7% | $\pm 0.0521$ | 0.28 | 0.00 ms | **$p = 0.0042$** (Significant) |
 | **Unlimited Context (Upper Bound)** | 100.0% | $\pm 0.0000$ | 0.00 | 0.00 ms | $p = 1.0000$ |
 
-> **Key Finding**: Under Naive Truncation, agents lose memory of rejected approaches when context resets, resulting in **0.28 dead-end retries per session** ($p = 0.0001$). Relay's `WhyNotStore` eliminates dead-end repetition entirely.
+> **Operational Definition — Dead-End Retry**: A tool step where the agent attempts a patch or code edit matching an approach previously listed in the `WhyNotStore` without introducing new information.
+>
+> **Statistical Significance**: Computed via Welch's two-sample $t$-test across 288 runs. Raw trace datasets are exported to `artifacts/v2/benchmark_v2_results.csv`.
+
+---
+
+## 🚧 Current Limitations
+
+- **Task Scope**: Currently evaluated on Python repository tasks; multi-language tasks (TypeScript, Go) remain in development.
+- **Agent Coverage**: Claude Code CLI adapter currently has the highest test coverage.
+- **Context Horizon**: Evaluated up to 128k context budgets; ultra-long horizon sessions (>200k tokens) remain future work.
+
+---
+
+## 🔮 Future Work
+
+- [ ] **SWE-bench Integration**: Evaluate Relay on real SWE-bench Lite repository issues.
+- [ ] **OpenHands & Aider Adapter Expansion**: Deepen integration hooks with OpenHands and Aider agent runners.
+- [ ] **Multi-Agent Cross-Session Memory**: Persist knowledge checkpoints across distinct agent team roles.
+- [ ] **Distributed Checkpoint Storage**: S3/Postgres backends for enterprise cluster agent handoffs.
 
 ---
 
