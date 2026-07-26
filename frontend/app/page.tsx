@@ -136,7 +136,7 @@ export default function Home() {
         {/* Action Buttons */}
         <div className="cta anim-land-fade3">
           <a
-            href="https://github.com/neo0007777/relay"
+            href="https://github.com/neo0007777"
             target="_blank"
             rel="noopener noreferrer"
             className="btn primary"
