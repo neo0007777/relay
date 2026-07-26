@@ -107,7 +107,7 @@ export default function Home() {
         <div className="brand" onClick={() => scrollTo('hero')}>
           <div className="icon">⚡</div>
           <span>relay</span>
-          <span style={{ fontSize: '0.72rem', color: 'var(--faint)', marginLeft: '0.2rem' }}>v0.4.1</span>
+          <span style={{ fontSize: '0.72rem', color: 'var(--faint)', marginLeft: '0.2rem' }}>v1.0.0</span>
         </div>
 
         <div className="links">
@@ -117,7 +117,7 @@ export default function Home() {
           <button onClick={() => scrollTo('ladder-sec')} className={activeNav === 'ladder-sec' ? 'active' : ''}>benchmark</button>
           <button onClick={() => scrollTo('architecture')} className={activeNav === 'architecture' ? 'active' : ''}>architecture</button>
           <button onClick={() => scrollTo('roadmap')} className={activeNav === 'roadmap' ? 'active' : ''}>roadmap</button>
-          <a href="https://github.com/yourusername/relay" target="_blank" rel="noopener noreferrer" className="gh" style={{ color: 'var(--magenta)' }}>
+          <a href="https://github.com/neo0007777/relay" target="_blank" rel="noopener noreferrer" className="gh" style={{ color: 'var(--magenta)' }}>
             GitHub ↗
           </a>
         </div>
@@ -136,7 +136,7 @@ export default function Home() {
         {/* Action Buttons */}
         <div className="cta anim-land-fade3">
           <a
-            href="https://github.com/yourusername/relay"
+            href="https://github.com/neo0007777/relay"
             target="_blank"
             rel="noopener noreferrer"
             className="btn primary"
@@ -154,20 +154,20 @@ export default function Home() {
         {/* Minimal Key Stats */}
         <div className="stats anim-land-fade3">
           <div>
-            <div className="n">87.0%</div>
+            <div className="n">100%</div>
             <div className="l">COMPLETION</div>
           </div>
           <div>
-            <div className="n">0.81</div>
-            <div className="l">CONTINUITY</div>
+            <div className="n">0.00</div>
+            <div className="l">DEAD ENDS</div>
           </div>
           <div>
-            <div className="n">1.4s</div>
+            <div className="n">2.6ms</div>
             <div className="l">LATENCY</div>
           </div>
           <div>
-            <div className="n">91%</div>
-            <div className="l">WORK SAVED</div>
+            <div className="n">50/50</div>
+            <div className="l">TESTS PASSING</div>
           </div>
         </div>
 
@@ -438,8 +438,8 @@ export default function Home() {
 
       {/* ── Minimal Footer ──────────────────────────────────────────────────── */}
       <footer>
-        <span>⚡ relay — <a href="https://github.com/yourusername/relay/blob/main/LICENSE">Apache 2.0 license</a></span>
-        <a href="https://github.com/yourusername/relay">GitHub</a>
+        <span>⚡ relay — <a href="https://github.com/neo0007777/relay/blob/main/LICENSE">MIT license</a></span>
+        <a href="https://github.com/neo0007777/relay">GitHub</a>
         <a href="#architecture">Architecture</a>
         <a href="#ladder-sec">Benchmark</a>
         <span className="sp">seamless context handoff.</span>

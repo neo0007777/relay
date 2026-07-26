@@ -231,17 +231,20 @@ relay replay .relay/traces/trace_sample.jsonl
 
 Relay exposes REST APIs for remote agent orchestration:
 
+> 🌐 **Live Deployed API Server**: `https://relay-api-pjuv.onrender.com`  
+> 📖 **Interactive Swagger Docs**: `https://relay-api-pjuv.onrender.com/docs`
+
 ```bash
-# Health Check
-curl http://localhost:8000/health
+# Health Check (Live Server)
+curl https://relay-api-pjuv.onrender.com/health
 
 # Trigger Manual Checkpoint
-curl -X POST http://localhost:8000/api/v1/checkpoint \
+curl -X POST https://relay-api-pjuv.onrender.com/api/v1/checkpoint \
   -H "Content-Type: application/json" \
   -d '{"session_id": "sess-123", "task_goal": "Optimize query"}'
 
 # Execute Handoff
-curl -X POST http://localhost:8000/api/v1/handoff \
+curl -X POST https://relay-api-pjuv.onrender.com/api/v1/handoff \
   -H "Content-Type: application/json" \
   -d '{"session_id": "sess-123"}'
 ```
